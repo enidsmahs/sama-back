@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ServicePreferenceService } from '../../../service/service-preference.service';
 import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
+import {ServiceConfigService} from '../../../service/service-config.service';
 
 @Component({
   selector: 'app-ajout-preference',
@@ -10,6 +11,7 @@ import {HttpClient} from '@angular/common/http';
 })
 export class AjoutPreferenceComponent implements OnInit {
   add=false;
+  file:File;
   SamaPreference = {
     "idPreference": 0,
     "nom": "",
@@ -31,7 +33,8 @@ export class AjoutPreferenceComponent implements OnInit {
     'valeur': ''
   };
 
-  constructor(private servicePreference: ServicePreferenceService, private http: HttpClient) { }
+  constructor(private servicePreference: ServicePreferenceService, private http: HttpClient,
+              private serviceConfig: ServiceConfigService) { }
 
   ngOnInit() {
     this.getPreferences();
@@ -60,7 +63,9 @@ export class AjoutPreferenceComponent implements OnInit {
   public setAdd(test1){
     this.add=test1;
   }
-
+  selectFile(event){
+    this.file=event.target.files.item(0);
+  }
   public enregistrerPropriete(propriete){
     this.SamaPreferencesSelected.proprietes.push(propriete);
     /*this.SamaPreference.proprietes.push(propriete);*/
@@ -78,17 +83,18 @@ export class AjoutPreferenceComponent implements OnInit {
   }
 
   savePropriete(propriete) {
-    this.servicePreference.savePropriete({
-      "idPropriete": 0,
-      "valeur": propriete.valeur,
-      "preference": {"idPreference": this.SamaPreferencesSelected.idPreference}
-    }).subscribe(
-      (res) => {
-        alert('propriété enrégistré...');
-        this.SamaPreferencesSelected.proprietes.push(res);
-      },
-      err => {
-        console.log('Error');
-      });
+    this.servicePreference.uploadFile1({
+      'idPropriete': 0,
+      'valeur': propriete.valeur,
+      'preference':{'idPreference':this.SamaPreferencesSelected.idPreference},
+      'image':this.file
+    }, this.file).subscribe((res) => {
+      alert('proprieté enrégistrée...');
+      this.SamaPreferencesSelected.proprietes.push(res);
+    });
+  }
+
+  getHost() {
+    return this.serviceConfig.host();
   }
 }

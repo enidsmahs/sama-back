@@ -8,6 +8,8 @@ import { ServiceTypeTissuService } from '../../../service/service-type-tissu.ser
 })
 export class TypeTissuComponent implements OnInit {
 
+  add = false;
+
   samaTypeTissu = {
     'idTypeTissu': 0,
     'nom': '',
@@ -17,7 +19,7 @@ export class TypeTissuComponent implements OnInit {
 
   SamaTypeTissus: any;
 
-  SamaTypeTissuSelected = {
+  SamaTypeTissuSelected: any = {
     'idTypeTissu': 0,
     'nom': '',
     'tissus': '',
@@ -28,6 +30,10 @@ export class TypeTissuComponent implements OnInit {
 
   ngOnInit() {
     this.getAllTypeTissu();
+  }
+
+  public setAdd(test1){
+    this.add=test1;
   }
 
   onSelect(type: any) {
@@ -42,12 +48,23 @@ export class TypeTissuComponent implements OnInit {
 
      this.service.setTypeTissu(this.samaTypeTissu);
      this.service.saveTypeTissu();
-      return this.getAllTypeTissu();
   }
 
   getAllTypeTissu () {
     return this.service.getTypeTissu().subscribe((data) => {
       this.SamaTypeTissus = data;
+    })
+  }
+
+  saveTissu(tissu) {
+    return this.service.saveTissu({
+      "idTissu": 0,
+      "nom": tissu.nom,
+      "typeTissu":{
+        "idTypeTissu": this.SamaTypeTissuSelected.idTypeTissu
+      }
+    }).subscribe(res => {
+      this.SamaTypeTissuSelected.tissus.push(res);
     })
   }
 

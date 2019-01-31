@@ -21,6 +21,8 @@ import { ServicePreferenceService } from '../service/service-preference.service'
 import { ServiceTissuService } from '../service/service-tissu.service';
 import { ServiceModeleService } from '../service/service-modele.service';
 import {ServiceTypeTissuService} from '../service/service-type-tissu.service';
+import {ServiceCommandeService} from '../service/service-commande-service';
+import {ServiceConfigService} from '../service/service-config.service';
 
 @NgModule({
   declarations: [
@@ -43,8 +45,14 @@ import {ServiceTypeTissuService} from '../service/service-type-tissu.service';
   exports: [ScrollModule],
   providers: [
     ServiceCollectionService,
-    ServiceCategorieService, ServiceTypeTissuService,
-    ServicePreferenceService, ServiceTissuService, ServiceModeleService,
+    ServiceCategorieService,
+    ServiceTypeTissuService,
+    ServicePreferenceService,
+    ServiceTissuService,
+    ServiceModeleService,
+    ServiceModeleService,
+    ServiceCommandeService,
+    ServiceConfigService,
     { provide: LocationStrategy, useClass: PathLocationStrategy }
   ],
   bootstrap: [AppComponent]

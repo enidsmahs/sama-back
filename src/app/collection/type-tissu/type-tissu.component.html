@@ -50,4 +50,17 @@ Affichage des tissus -->
       </div>
     </div>
   </div>
+
+  <div *ngIf="add==true" class="position-fixed  bg-dark w-50 h-50" style="top: 50%;left: 50%;">
+    <form #type="ngForm" (ngSubmit)="saveTissu(type)"  >
+      <div class="form-group">
+        <label for="nom_tissu">Nom:</label>
+        <input id="nom_tissu" type="text" name="nom" class="form-control" ngModel>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary mb-2">save tissu</button>
+      </div>
+
+    </form>
+  </div>
 </div>
