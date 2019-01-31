@@ -58,7 +58,7 @@ Affichage d'une préférence -->
 
     <div class="form-group">
       <label for="nom_propriete">Nom:</label>
-      <input id="nom_propriete" type="text" name="valeur" class="form-control" ngModel>
+      <input id="nom_propriete" type="text" class="form-control" ([ngModel])="valeur">
     </div>
     <div class="form-group">
       <label for="image_propriete">Image:</label>

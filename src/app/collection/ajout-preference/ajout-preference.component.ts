@@ -16,7 +16,7 @@ import {HttpResponse} from 'selenium-webdriver/http';
 })
 export class AjoutPreferenceComponent implements OnInit {
   add=false;
-  file:File;
+  file:File = null;
   SamaPreference = {
     "idPreference": 0,
     "nom": "",
