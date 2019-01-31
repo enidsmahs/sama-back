@@ -39,10 +39,10 @@ export class ServicePreferenceService {
       formdata.append('file',file);
       formdata.append('propriete', new Blob([JSON.stringify(propriete)], {
         type: 'application/json'
-      }));
+    }));
       const req= new HttpRequest('POST','http://192.168.1.123:8080/saveProprieteImage',formdata,{
-        reportProgress:true,
-          responseType:'text'
+          reportProgress:false,
+
       });
       return this.http.request(req);
     }
