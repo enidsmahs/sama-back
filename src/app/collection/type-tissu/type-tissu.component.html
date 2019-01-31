@@ -44,7 +44,9 @@ Affichage des tissus -->
     </div>
     <div class="d-flex">
       <div class="card mx-2" style="width: 12rem; display: inline-block;" *ngFor="let prop of SamaTypeTissuSelected.tissus">
-        <img class="card-img-top" width="100rem" height="100rem" src="assets/images/preference/{{ prop.nom }}.jpg" alt="Card image cap" >
+        <div class="card-body">
+          <h5 class="card-title">{{ prop.nom }}</h5>
+        </div>
       </div>
     </div>
   </div>

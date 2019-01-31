@@ -82,6 +82,13 @@ export class AjoutPreferenceComponent implements OnInit {
       "idPropriete": 0,
       "valeur": propriete.valeur,
       "preference": {"idPreference": this.SamaPreferencesSelected.idPreference}
-    })
+    }).subscribe(
+      (res) => {
+        alert('propriété enrégistré...');
+        this.SamaPreferencesSelected.proprietes.push(res);
+      },
+      err => {
+        console.log('Error');
+      });
   }
 }
