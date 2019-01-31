@@ -2,3 +2,10 @@
   cursor: pointer;
 }
 
+.selected {
+  background-color: #00AEEF;
+}
+
+.details {
+  background-color: #9ad7fd;
+}

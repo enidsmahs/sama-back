@@ -22,4 +22,8 @@ export class ServiceTissuService {
                 console.log('Error');
             });
     }
+
+  getTissu() {
+    return this.http.get('http://192.168.1.123:8080/getAllTissu').map(data => data);
+  }
 }

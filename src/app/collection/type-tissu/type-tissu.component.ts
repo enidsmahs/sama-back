@@ -52,4 +52,8 @@ export class TypeTissuComponent implements OnInit {
     this.service.saveTypeTissu();*/
   }
 
-  g
+  getAllTypeTissu () {
+    return this.service.getTypeTissu().subscribe()
+  }
+
+}
