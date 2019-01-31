@@ -25,7 +25,7 @@ Nouvelle type tissu -->
   <div class="col-sm-3">
     <p>Mes type de tissu <i class="icofont sicofont-1x icofont-ui-add"></i></p>
     <ul class="list-group">
-      <li class="list-group-item yaga" *ngFor="let type of SamaTypeTissus" [class.selected]="type === SamaTypeTissuSelected.nom" (click)="onSelect(type)">
+      <li class="list-group-item yaga" *ngFor="let type of SamaTypeTissus" [class.selected]="type === SamaTypeTissuSelected" (click)="onSelect(type)">
         <a>{{ type.nom }}</a>
       </li>
     </ul>
@@ -43,8 +43,8 @@ Affichage des tissus -->
       </div>
     </div>
     <div class="d-flex">
-      <div class="card mx-2" style="width: 12rem; display: inline-block;" *ngFor="let prop of SamaTissu">
-        <img class="card-img-top" width="100rem" height="100rem" src="assets/images/preference/{{ prop.idTissu }}.jpg" alt="Card image cap" >
+      <div class="card mx-2" style="width: 12rem; display: inline-block;" *ngFor="let prop of SamaTypeTissuSelected.tissus">
+        <img class="card-img-top" width="100rem" height="100rem" src="assets/images/preference/{{ prop.nom }}.jpg" alt="Card image cap" >
       </div>
     </div>
   </div>

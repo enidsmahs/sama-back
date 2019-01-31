@@ -23,7 +23,7 @@ export class ServiceTypeTissuService {
             });
     }
 
-  getTypeTissu() {
-    return this.http.get('http://192.168.1.123:8080/getAllTypeTissu').map(data => data);
-  }
+    getTypeTissu() {
+      return this.http.get('http://192.168.1.123:8080/getAllTypeTissu').map(data => data);
+    }
 }

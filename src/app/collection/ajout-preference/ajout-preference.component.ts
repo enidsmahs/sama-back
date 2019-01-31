@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicePreferenceService } from '../../../service/service-preference.service';
 import {Router} from '@angular/router';
+import {HttpClient} from '@angular/common/http';
 
 @Component({
   selector: 'app-ajout-preference',
@@ -30,7 +31,7 @@ export class AjoutPreferenceComponent implements OnInit {
     'valeur': ''
   };
 
-  constructor(private servicePreference: ServicePreferenceService, private router: Router) { }
+  constructor(private servicePreference: ServicePreferenceService, private http: HttpClient) { }
 
   ngOnInit() {
     this.getPreferences();
@@ -56,25 +57,31 @@ export class AjoutPreferenceComponent implements OnInit {
     console.log(this.SamaPreference);
   }
 
-  public enregistrerPreference(SamaPreference) {
-
-    this.SamaPreference.nom = SamaPreference.preference;
-
-    /*console.log(this.SamaPreference)*/
-
-    this.servicePreference.setPreference(this.SamaPreference);
-
-    this.servicePreference.savePreference();
-
-    this.getPreferences();
-
-  }
-
   public setAdd(test1){
     this.add=test1;
   }
 
   public enregistrerPropriete(propriete){
     this.SamaPreferencesSelected.proprietes.push(propriete);
+    /*this.SamaPreference.proprietes.push(propriete);*/
+
+
+  }
+
+  public enregistrerPreference(SamaPreference) {
+
+    this.SamaPreference.nom = SamaPreference.preference;
+
+    this.servicePreference.setPreference(this.SamaPreference);
+    this.servicePreference.savePreference();
+
+  }
+
+  savePropriete(propriete) {
+    this.servicePreference.savePropriete({
+      "idPropriete": 0,
+      "valeur": propriete.valeur,
+      "preference": {"idPreference": this.SamaPreferencesSelected.idPreference}
+    })
   }
 }

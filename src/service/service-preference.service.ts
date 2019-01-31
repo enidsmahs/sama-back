@@ -6,6 +6,14 @@ export class ServicePreferenceService {
 
     preference: any;
 
+  SamaPreferencesSelected : any = {
+    "idPreference": 0,
+    "nom": "",
+    "proprietes": [
+
+    ]
+  };
+
     setPreference(preference) {
         this.preference = preference;
     }
@@ -26,4 +34,16 @@ export class ServicePreferenceService {
     getPreference() {
         return this.http.get('http://192.168.1.123:8080/getAllPreference').map(data => data);
     }
+
+  savePropriete(propriete: any) {
+    return this.http.post('http://192.168.1.123:8080/savePropriete', propriete)
+      .subscribe(
+        (res) => {
+          alert('propriété enrégistré...');
+          this.SamaPreferencesSelected.proprietes.push(res);
+        },
+        err => {
+          console.log('Error');
+        });
+  }
 }

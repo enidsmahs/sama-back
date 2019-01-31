@@ -23,19 +23,11 @@ export class TypeTissuComponent implements OnInit {
     'tissus': '',
     'ligneModelTissu': ''
   };
-  SamaTissu = {
-    'idTissu': 0,
-    'nom': '',
-    'typeTissu': {'idTypeTissu': 0},
-    'description': {
-      'idDesctiptionTissu': 0,
-      'nom': '',
-      'tissu': ''
-    }
-  };
+
   constructor(private service: ServiceTypeTissuService) { }
 
   ngOnInit() {
+    this.getAllTypeTissu();
   }
 
   onSelect(type: any) {
@@ -46,14 +38,17 @@ export class TypeTissuComponent implements OnInit {
     this.samaTypeTissu.idTypeTissu = 0;
     this.samaTypeTissu.nom = samaTypeTissu.nom_type_tissu;
 
-    console.log(this.samaTypeTissu);
+    /* console.log(this.samaTypeTissu);*/
 
-    /*this.service.setTypeTissu(this.samaTypeTissu);
-    this.service.saveTypeTissu();*/
+     this.service.setTypeTissu(this.samaTypeTissu);
+     this.service.saveTypeTissu();
+      return this.getAllTypeTissu();
   }
 
   getAllTypeTissu () {
-    return this.service.getTypeTissu().subscribe()
+    return this.service.getTypeTissu().subscribe((data) => {
+      this.SamaTypeTissus = data;
+    })
   }
 
 }

@@ -24,7 +24,7 @@ Nouvelle des préférences -->
   <div class="col-sm-3">
         <p>Liste des préférences <i class="icofont sicofont-1x icofont-ui-add"></i></p>
         <ul class="list-group">
-          <li class="list-group-item yaga" *ngFor="let pref of SamaPreferences" [class.selected]="pref === SamaPreferencesSelected.nom" (click)="showClick(pref)">
+          <li class="list-group-item yaga" *ngFor="let pref of SamaPreferences" [class.selected]="pref === SamaPreferencesSelected" (click)="showClick(pref)">
             <a>{{ pref.nom }}</a>
           </li>
         </ul>
@@ -33,7 +33,7 @@ Nouvelle des préférences -->
 
   <!--
 Affichage d'une préférence -->
-  <div class="col-sm-9 col-lg-9" *ngIf="SamaPreferencesSelected.nom != ''">
+  <div class="col-sm-9 col-lg-9 details" *ngIf="SamaPreferencesSelected.nom != ''">
     <div class="d-flex align-items-center">
       <div class="mr-auto  h1">{{SamaPreferencesSelected.nom}}</div>
       <div class=" ">
@@ -48,23 +48,25 @@ Affichage d'une préférence -->
           <h5 class="card-title">{{ prop.valeur }}</h5>
         </div>
       </div>
+
     </div>
   </div>
   </div>
 
-<div *ngIf="add==true" class="position-fixed  bg-dark w-50 h-50 details" style="top: 50%;left: 50%;">
-  <form #f="ngForm" (ngSubmit)="enregistrerPropriete(f)"  >
+<div *ngIf="add==true" class="position-fixed  bg-dark w-50 h-50" style="top: 50%;left: 50%;">
+  <form #prop="ngForm" (ngSubmit)="savePropriete(prop)"  >
 
+    <div class="form-group">
+      <label for="nom_propriete">Nom:</label>
+      <input id="nom_propriete" type="text" name="valeur" class="form-control" ngModel>
+    </div>
     <div class="form-group">
       <label for="image_propriete">Image:</label>
       <input id="image_propriete" name="image" type="file" class="form-control-file"  ngModel>
     </div>
-    <div class="form-group">
-      <label for="nom_propriete">Nom:</label>
-      <input id="nom_propriete" type="text" name="nom" class="form-control">
+    <div>
+      <button type="submit" class="btn btn-primary mb-2">save propriété</button>
     </div>
-    <button type="submit" class="btn btn-primary mb-2">Confirm identity</button>
-
 
   </form>
 
