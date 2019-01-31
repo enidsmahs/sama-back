@@ -1,0 +1,140 @@
+import {Injectable} from '@angular/core';
+
+export interface BadgeItem {
+  type: string;
+  value: string;
+}
+
+export interface ChildrenItems {
+  state: string;
+  target?: boolean;
+  name: string;
+  type?: string;
+  children?: ChildrenItems[];
+}
+
+export interface MainMenuItems {
+  state: string;
+  main_state?: string;
+  target?: boolean;
+  name: string;
+  type: string;
+  icon: string;
+  badge?: BadgeItem[];
+  children?: ChildrenItems[];
+}
+
+export interface Menu {
+  label: string;
+  main: MainMenuItems[];
+}
+
+const MENUITEMS = [
+  {
+    label: 'Dashboar',
+    main: [
+      {
+        state: 'dashboard',
+        name: 'Dashboar',
+        type: 'link',
+        icon: 'ti-home'
+      }
+    ]
+  },
+  {
+        label: '',
+        main: [
+            {
+                state: 'basic',
+                name: 'Categories',
+                type: 'sub',
+                icon: 'ti-layout-grid2-alt',
+                children: [
+                    {
+                        state: 'ajout-categorie',
+                        name: 'Mes catégories'
+                    }
+                ]
+            },
+        ]
+    },
+  {
+    label: '',
+    main: [
+      {
+        state: 'basic',
+        name: 'Collections',
+        type: 'sub',
+        icon: 'ti-layout-grid2-alt',
+        children: [
+          {
+            state: 'liste-collection',
+            name: 'Mes Collections'
+          }
+        ]
+      },
+    ]
+  },
+  {
+    label: '',
+    main: [
+      {
+        state: 'basic',
+        name: 'Modeles',
+        type: 'sub',
+        icon: 'ti-layout-grid2-alt',
+        children: [
+          {
+            state: 'liste-modele',
+            name: 'Liste modèle'
+          }
+        ]
+      },
+    ]
+  },
+  {
+    label: '',
+    main: [
+      {
+        state: 'basic',
+        name: 'Préférences',
+        type: 'sub',
+        icon: 'ti-layout-grid2-alt',
+        children: [
+          {
+            state: 'ajout-preference',
+            name: 'Liste préférences'
+          }
+        ]
+      },
+    ]
+  },
+  {
+    label: '',
+    main: [
+      {
+        state: 'basic',
+        name: 'Tissu',
+        type: 'sub',
+        icon: 'ti-layout-grid2-alt',
+        children: [
+          {
+            state: 'type-tissu',
+            name: 'Mes Tissus'
+          }
+        ]
+      },
+    ]
+  }
+];
+
+@Injectable()
+export class MenuItems {
+  getAll(): Menu[] {
+    return MENUITEMS;
+  }
+
+  /*add(menu: Menu) {
+    MENUITEMS.push(menu);
+  }*/
+}

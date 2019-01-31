@@ -1,0 +1,66 @@
+
+<!--
+Nouvelle des préférences -->
+
+<div class="row">
+  <div class="col-sm-6">
+    <form #f="ngForm" (ngSubmit)="enregistrerPreference(f.value)">
+      <div class="form-group">
+        <label>Nom préférence</label>
+        <input type="text" class="form-control form-control-round" name="preference" required ngModel>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">Ajout préférence</button>
+      </div>
+    </form>
+
+  </div>
+</div>
+<div class="row">
+
+  <!--
+  Affichage liste des préférences -->
+
+  <div class="col-sm-3">
+        <p>Liste des préférences <i class="icofont sicofont-1x icofont-ui-add"></i></p>
+        <ul class="list-group">
+          <li class="list-group-item yaga" *ngFor="let pref of SamaPreferences" [class.selected]="pref === SamaPreferencesSelected.nom" (click)="showClick(pref)">
+            <a>{{ pref.nom }}</a>
+          </li>
+        </ul>
+  </div>
+
+
+  <!--
+Affichage d'une préférence -->
+  <div class="col-sm-9 col-lg-9" *ngIf="SamaPreferencesSelected.nom != ''">
+    <div class="d-flex align-items-center">
+      <div class="mr-auto  h1">{{SamaPreferencesSelected.nom}}</div>
+      <div class=" ">
+
+        <i class="btn btn-primary btn-sm btn icofont icofont-ui-add" (click)="setAdd(true)">Nouveau Proprieté</i>
+      </div>
+    </div>
+    <div class="d-flex">
+      <div class="card mx-2" style="width: 12rem; display: inline-block;" *ngFor="let prop of SamaPreferencesSelected.proprietes">
+        <img class="card-img-top" width="100rem" height="100rem" src="assets/images/preference/{{ prop.idPropriete }}.jpg" alt="Card image cap" >
+        <div class="card-body">
+          <h5 class="card-title">{{ prop.valeur }}</h5>
+        </div>
+      </div>
+    </div>
+  </div>
+  </div>
+
+<div *ngIf="add==true" class="position-fixed  bg-dark w-50 h-50 details" style="top: 50%;left: 50%;">
+  <form #f="ngForm" (ngSubmit)="enregistrerPropriete(f)"  >
+
+    <div class="form-group">
+      <label for="image_propriete">Image:</label>
+      <input id="image_propriete" name="image" type="file" class="form-control-file"  ngModel>
+    </div>
+    <div class="form-group">
+      <label for="nom_propriete">Nom:</label>
+      <input id="nom_propriete" type="text" name="nom" class="form-control">
+    </div>
+    <button type="submit" class="btn btn-primary mb

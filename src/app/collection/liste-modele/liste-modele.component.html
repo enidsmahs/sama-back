@@ -1,0 +1,53 @@
+<div class="row">
+  <div class="col-sm-5 col-lg-5">
+      <form #f="ngForm" (ngSubmit)="saveTissu(f.value)">
+        <div class="form-group">
+          <label for="">Type tissu</label>
+          <select class="form-control form-control-round" name="categorie" id="" ngModel>
+            <option *ngFor="let cat of categories" value="{{cat.idCategorie}}">{{cat.nom}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">save tissu</button>
+        </div>
+      </form>
+
+      <form #f="ngForm" (ngSubmit)="savePreference(f.value)">
+        <div class="form-group">
+          <label for="">Préférences</label>
+          <select class="form-control form-control-round" name="categorie" id="" ngModel>
+            <option *ngFor="let cat of categories" value="{{cat.idCategorie}}">{{cat.nom}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <button type="submit" class="btn btn-primary">save preference</button>
+        </div>
+      </form>
+  </div>
+
+  <div class="col-sm-7 col-lg-7">
+    <div class="row">
+      <div *ngFor="let collection of SamaListeCollection">
+        <div class="card" style="width: 18rem;">
+          <img class="card-img-top" src="..." alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{ collection.nom }}</h5>
+            <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's
+              content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="row">
+      <ul class="nav nav-pills">
+        <li [ngClass]="'active' == pageCourant" *ngFor="let p of pages; let i=index">
+          <a class="clickable" (click)="goToPage(i)">{{ i }}</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+
+</div>
