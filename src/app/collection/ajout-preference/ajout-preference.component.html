@@ -54,11 +54,11 @@ Affichage d'une préférence -->
   </div>
 
 <div *ngIf="add==true" class="position-fixed  bg-dark w-50 h-50" style="top: 50%;left: 50%;">
-  <form #prop="ngForm" (ngSubmit)="savePropriete(prop)" enctype="multipart/form-data">
+  <form #prop="ngForm" (ngSubmit)="savePropriete(prop.value)" enctype="multipart/form-data">
 
     <div class="form-group">
       <label for="nom_propriete">Nom:</label>
-      <input id="nom_propriete" type="text" class="form-control" ([ngModel])="valeur">
+      <input name="valeur" id="nom_propriete" type="text" class="form-control" required ngModel>
     </div>
     <div class="form-group">
       <label for="image_propriete">Image:</label>

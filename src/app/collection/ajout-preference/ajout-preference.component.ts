@@ -1,13 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicePreferenceService } from '../../../service/service-preference.service';
-import {Router} from '@angular/router';
 import {HttpClient} from '@angular/common/http';
 import {ServiceConfigService} from '../../../service/service-config.service';
-import { Observable } from 'rxjs/Observable';
 import 'rxjs/add/observable/of';
 import 'rxjs/add/operator/share';
 import 'rxjs/add/operator/map';
-import {HttpResponse} from 'selenium-webdriver/http';
 
 @Component({
   selector: 'app-ajout-preference',
@@ -79,18 +76,18 @@ export class AjoutPreferenceComponent implements OnInit {
   }
 
   public enregistrerPreference(SamaPreference) {
-
     this.SamaPreference.nom = SamaPreference.preference;
 
     this.servicePreference.setPreference(this.SamaPreference);
     this.servicePreference.savePreference();
-
   }
+
   info:any;
-  savePropriete(propriete) {
+  savePropriete(prop) {
+
     this.servicePreference.uploadFile1({
       'idPropriete': 0,
-      'valeur': propriete.valeur,
+      'valeur': prop.valeur,
       'preference':{'idPreference':this.SamaPreferencesSelected.idPreference}
     }, this.file).subscribe((res:any) => {
         if(res.type==4){

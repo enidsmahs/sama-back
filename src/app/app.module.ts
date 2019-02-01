@@ -24,6 +24,7 @@ import {ServiceTypeTissuService} from '../service/service-type-tissu.service';
 import {ServiceCommandeService} from '../service/service-commande-service';
 import {ServiceConfigService} from '../service/service-config.service';
 
+
 @NgModule({
   declarations: [
     AppComponent,

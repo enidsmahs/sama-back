@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ServiceModeleService} from '../../../service/service-modele.service';
 
 @Component({
   selector: 'app-liste-modele',
@@ -7,35 +8,28 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ListeModeleComponent implements OnInit {
 
-SamaModele = {
-  'idModel': 0,
-  'nom': '',
-  'date': '',
-  'collection': {'idCollection': 0},
-  'ligneModelTissus': [],
-  'preferences': []
-};
+  SamaModele: any = {
+    'idModel': 0,
+    'nom': '',
+    'date': '',
+    'collection': [
 
-ligneModelTissus = {
-   'typeTissu': { 'idTypeTissu': 15 }
-};
+    ],
+    'ligneModelTissus': [
 
-preferences = { 'idPreference': 1 };
+    ],
+    'preferences': [
 
-  constructor() { }
+    ]
+  };
+
+  constructor(private serviceModele: ServiceModeleService) { }
 
   ngOnInit() {
   }
 
   public enregistrerModele(SamaModele) {
-      this.SamaModele.idModel = 0;
-      this.SamaModele.nom = 'chemise';
-      this.SamaModele.date = '25/01/2019';
-      this.SamaModele.collection.idCollection = 10;
-      this.SamaModele.ligneModelTissus.push(this.ligneModelTissus);
-      this.SamaModele.preferences.push(this.preferences);
 
-      console.log(this.SamaModele);
   }
 
 }

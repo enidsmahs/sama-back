@@ -32,9 +32,7 @@ export class ServicePreferenceService {
       return this.http.post('http://192.168.1.123:8080/savePropriete', propriete).map(res => res);
     }
 
-
-
-    uploadFile1(propriete: any,file: File): Observable<HttpEvent<{}>> {
+    uploadFile1(propriete: any, file: File): Observable<HttpEvent<{}>> {
       const formdata: FormData=new FormData();
       formdata.append('file',file);
       formdata.append('propriete', new Blob([JSON.stringify(propriete)], {
