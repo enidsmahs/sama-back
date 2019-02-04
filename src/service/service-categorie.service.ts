@@ -9,7 +9,7 @@ export class ServiceCategorieService {
   constructor(private http: HttpClient) { }
 
   saveCategorie (categorie: Categorie) {
-    return this.http.post('http://192.168.1.111:8080/saveCategorie', categorie).subscribe(
+    return this.http.post('http://192.168.1.114:8080/saveCategorie', categorie).subscribe(
       (res) => {
         alert('catégorie enrégistrée...');
       },
@@ -18,11 +18,11 @@ export class ServiceCategorieService {
   }
 
   getAllCategorie () {
-    return this.http.get('http://192.168.1.123:8080/getAllCategorie').map(data => data);
+    return this.http.get('http://192.168.1.114:8080/getAllCategorie').map(data => data);
   }
 
   deleteCategorie (id: number) {
-    return this.http.get('http://192.168.1.123:8080/deleteCategorie/'+id).subscribe(
+    return this.http.get('http://192.168.1.114:8080/deleteCategorie/' + id).subscribe(
       (res) => {
         alert('catégorie supprimmée...');
       },

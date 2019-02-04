@@ -42,14 +42,26 @@ export const AppRoutes: Routes = [{
       path: 'liste-modele',
       loadChildren: './collection/liste-modele/liste-modele.component.ts'
     }, {
-      path: 'ajout-modele',
-      loadChildren: './collection/ajout-modele/ajout-modele.component.ts'
-    }, {
       path: 'ajout-categorie',
       loadChildren: './collection/ajout-categorie/ajout-categorie.component.ts'
     }, {
       path: 'type-tissu',
       loadChildren: './collection/type-tissu/type-tissu.component.ts'
+    }, {
+      path: 'sama-collection',
+      loadChildren: './sama-collection/sama-collection.module#SamaCollectionModule'
+    }, {
+      path: 'sama-categorie',
+      loadChildren: './sama-categorie/sama-categorie.module#SamaCategorieModule'
+    }, {
+      path: 'sama-preference',
+      loadChildren: './sama-preference/sama-preference.module#SamaPreferenceModule'
+    }, {
+      path: 'sama-tissu',
+      loadChildren: './sama-tissu/sama-tissu.module#SamaTissuModule'
+    }, {
+      path: 'sama-modele',
+      loadChildren: './sama-modele/sama-modele.module#SamaModeleModule'
     }
   ]
 }, {

@@ -29,7 +29,10 @@ export class ListeModeleComponent implements OnInit {
   }
 
   public enregistrerModele(SamaModele) {
+  }
 
+  saveModel(f) {
+    console.log(f)
   }
 
 }

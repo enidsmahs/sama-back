@@ -37,8 +37,8 @@ export class TypeTissuComponent implements OnInit {
     this.getAllTypeTissu();
   }
 
-  public setAdd(test1){
-    this.add=test1;
+  public setAdd(test1) {
+    this.add = test1;
   }
 
   onSelect(type: any) {
@@ -58,11 +58,11 @@ export class TypeTissuComponent implements OnInit {
   getAllTypeTissu () {
     return this.service.getTypeTissu().subscribe((data) => {
       this.SamaTypeTissus = data;
-    })
+    });
   }
 
-  selectFile(event){
-    this.file=event.target.files.item(0);
+  selectFile(event) {
+    this.file = event.target.files.item(0);
   }
 
   saveTissu(type) {

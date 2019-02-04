@@ -25,11 +25,11 @@ export class ServicePreferenceService {
     }
 
     getPreference() {
-        return this.http.get('http://192.168.1.123:8080/getAllPreference').map(data => data);
+        return this.http.get('http://192.168.1.114:8080/getAllPreference').map(data => data);
     }
 
     savePropriete(propriete: any) {
-      return this.http.post('http://192.168.1.123:8080/savePropriete', propriete).map(res => res);
+      return this.http.post('http://192.168.1.114:8080/savePropriete', propriete).map(res => res);
     }
 
     uploadFile1(propriete: any, file: File): Observable<HttpEvent<{}>> {
@@ -38,7 +38,7 @@ export class ServicePreferenceService {
       formdata.append('propriete', new Blob([JSON.stringify(propriete)], {
         type: 'application/json'
     }));
-      const req= new HttpRequest('POST','http://192.168.1.123:8080/saveProprieteImage',formdata,{
+      const req= new HttpRequest('POST','http://192.168.1.114:8080/saveProprieteImage',formdata,{
           reportProgress:false,
 
       });
@@ -50,6 +50,6 @@ export class ServicePreferenceService {
       const formData: FormData = new FormData();
       formData.append('propriete', propriete);
       formData.append('image', image);
-      return this.http.post('http://192.168.1.123:8080/', formData).map(res => res);
+      return this.http.post('http://192.168.1.114:8080/', formData).map(res => res);
     }
 }

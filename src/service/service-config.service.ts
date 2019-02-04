@@ -7,7 +7,7 @@ export class ServiceConfigService {
   constructor() { }
 
   host() {
-    return '192.168.1.123:8080';
+    return '192.168.1.114:8080';
   }
   
 }

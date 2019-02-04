@@ -12,23 +12,27 @@ import 'rxjs/add/operator/map';
   styleUrls: ['./ajout-preference.component.css']
 })
 export class AjoutPreferenceComponent implements OnInit {
-  add=false;
-  file:File = null;
+  add = false;
+  file: File = null;
   SamaPreference = {
-    "idPreference": 0,
-    "nom": "",
-    "proprietes": [
+    'idPreference': 0,
+    'nom': '',
+    'proprietes': [
 
     ]
   };
+
+  SamaPreferencesSelected: any = {
+    'idPreference': 0,
+    'nom': '',
+    'proprietes': [
+
+    ]
+  };
+
   SamaPreferences: any;
-  SamaPreferencesSelected : any = {
-    "idPreference": 0,
-    "nom": "",
-    "proprietes": [
 
-    ]
-  };
+  info: any;
 
   Propriete: any = {
     'idPropriete': 0,
@@ -62,13 +66,14 @@ export class AjoutPreferenceComponent implements OnInit {
     console.log(this.SamaPreference);
   }
 
-  public setAdd(test1){
-    this.add=test1;
+  public setAdd(test1) {
+    this.add = test1;
   }
-  selectFile(event){
-    this.file=event.target.files.item(0);
+
+  selectFile(event) {
+    this.file = event.target.files.item(0);
   }
-  public enregistrerPropriete(propriete){
+  public enregistrerPropriete(propriete) {
     this.SamaPreferencesSelected.proprietes.push(propriete);
     /*this.SamaPreference.proprietes.push(propriete);*/
 
@@ -82,24 +87,23 @@ export class AjoutPreferenceComponent implements OnInit {
     this.servicePreference.savePreference();
   }
 
-  info:any;
   savePropriete(prop) {
 
     this.servicePreference.uploadFile1({
       'idPropriete': 0,
       'valeur': prop.valeur,
-      'preference':{'idPreference':this.SamaPreferencesSelected.idPreference}
-    }, this.file).subscribe((res:any) => {
-        if(res.type==4){
-          console.log('11111111'+res.body);
-          console.log(res.body)
-          console.log(res)
+      'preference': {'idPreference':this.SamaPreferencesSelected.idPreference}
+    }, this.file).subscribe((res: any) => {
+        if (res.type === 4) {
+          console.log('11111111' + res.body);
+          console.log(res.body);
+          console.log(res);
           this.SamaPreferencesSelected.proprietes.push((res.body));
         }
 
-      //console.log((<any>res));
+      // console.log((<any>res));
 
-      },err => console.error(err)
+      }, err => console.error(err)
     );
   }
 

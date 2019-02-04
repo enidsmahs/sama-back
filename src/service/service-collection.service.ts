@@ -12,18 +12,12 @@ export class ServiceCollectionService {
   }
 
   saveCollection () {
-    return this.http.post('http://192.168.1.123:8080/saveCollection', this.collection)
-      .subscribe(
-        (res) => {
-          alert('collection enrégistrée...');
-        },
-        err => {
-          console.log('Error');
-        });
+    return this.http.post('http://192.168.1.114:8080/saveCollection', this.collection)
+      .map(res => res);
   }
 
   getAllCollection () {
-    return this.http.get('http://192.168.1.123:8080/getAllCollection').map(data => data);
+    return this.http.get('http://192.168.1.114:8080/getAllCollection').map(data => data);
   }
 
 

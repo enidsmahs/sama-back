@@ -31,16 +31,47 @@ export interface Menu {
 
 const MENUITEMS = [
   {
-    label: 'Dashboar',
+    label: 'Dashboard',
     main: [
       {
         state: 'dashboard',
-        name: 'Dashboar',
+        name: 'Dashboard',
         type: 'link',
         icon: 'ti-home'
+      },
+      {
+        state: 'sama-categorie',
+        name: 'Mes catégories',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
+      {
+        state: 'sama-collection',
+        name: 'Mes collections',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
+      {
+        state: 'sama-preference',
+        name: 'Mes préférences',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
+      {
+        state: 'sama-tissu',
+        name: 'Mes tissus',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
+      {
+        state: 'sama-modele',
+        name: 'Mes modèles',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
       }
     ]
   },
+  /*
   {
         label: '',
         main: [
@@ -126,6 +157,7 @@ const MENUITEMS = [
       },
     ]
   }
+*/
 ];
 
 @Injectable()

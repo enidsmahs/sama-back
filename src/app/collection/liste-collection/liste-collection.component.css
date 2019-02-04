@@ -1,5 +1,11 @@
+.yaga {
+  cursor: pointer;
+}
 
+.selected {
+  background-color: #9ad7fd;
+}
 
-.clickable {
-    cursor: pointer;
+.details {
+  background-color: #9ad7fd;
 }

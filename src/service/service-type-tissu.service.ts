@@ -15,7 +15,7 @@ export class ServiceTypeTissuService {
 
 
     saveTypeTissu() {
-        return this.http.post('http://192.168.1.123:8080/saveTypeTissu', this.typeTissu).subscribe(
+        return this.http.post('http://192.168.1.114:8080/saveTypeTissu', this.typeTissu).subscribe(
             (res) => {
                 alert('preference enrégistrée...');
             },
@@ -25,11 +25,11 @@ export class ServiceTypeTissuService {
     }
 
     getTypeTissu() {
-      return this.http.get('http://192.168.1.123:8080/getAllTypeTissu').map(data => data);
+      return this.http.get('http://192.168.1.114:8080/getAllTypeTissu').map(data => data);
     }
 
     saveTissu(tissu: any) {
-      return this.http.post('http://192.168.1.123:8080/saveTissu', tissu).map(res => res);
+      return this.http.post('http://192.168.1.114:8080/saveTissu', tissu).map(res => res);
     }
 
     uploadFileTissu(tissu: any, file: File): Observable<HttpEvent<{}>> {
@@ -38,7 +38,7 @@ export class ServiceTypeTissuService {
       formdata.append('propriete', new Blob([JSON.stringify(tissu)], {
         type: 'application/json'
       }));
-      const req= new HttpRequest('POST','http://192.168.1.123:8080/saveTissuImage',formdata,{
+      const req= new HttpRequest('POST','http://192.168.1.114:8080/saveTissuImage',formdata,{
         reportProgress:false,
 
       });

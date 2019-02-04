@@ -15,6 +15,13 @@ export class ListeCollectionComponent implements OnInit {
     'date': '',
     'categorie': { 'idCategorie': 0 }
   };
+
+  SamaCollectionSelected: any = {
+    'idCollection': 0,
+    'nom': '',
+    'date': '',
+    'categorie': { 'idCategorie': 0 }
+  };
   SamaListeCollection: any;
   categories: any;
 
@@ -32,7 +39,17 @@ export class ListeCollectionComponent implements OnInit {
     this.SamaCollection.categorie.idCategorie = SamaCollection.categorie;
 
     this.collectionService.setCollection(this.SamaCollection);
-    this.collectionService.saveCollection();
+    this.collectionService.saveCollection().subscribe(
+      (res) => {
+        alert('collection enrégistrée...');
+      },
+      err => {
+        console.log('Error');
+      });
+  }
+
+  showClick(pref: any) {
+    this.SamaCollectionSelected = pref;
   }
 
   getCollections() {
