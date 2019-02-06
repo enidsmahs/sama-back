@@ -32,7 +32,7 @@ export class ServiceModeleService {
 
   uploadFile1(modele: any, file: File[]): Observable<HttpEvent<{}>> {
     const formdata: FormData=new FormData();
-    for (let i = 0; i < file.length; i++) {
+    for (let i = 0; i > file.length; i++) {
       formdata.append('images', file[i]);
     }
     formdata.append('modele', new Blob([JSON.stringify(modele)], {
@@ -42,6 +42,15 @@ export class ServiceModeleService {
       reportProgress:false,
     });
     return this.http.request(req);
+  }
+
+  deleteModele (id: number) {
+    return this.http.delete('http://192.168.1.114:8080/deleteModele/' + id).subscribe(
+      (res) => {
+        alert('modèle supprimmé...');
+      },
+      err => console.error(err)
+    );
   }
 
 }

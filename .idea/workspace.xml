@@ -1,30 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="8d2533a1-8775-42d1-a1cf-48491284c5c0" name="Default" comment="Ajout Preference et Propriété -Terminé&#10;&#10;Ajout Type Tissu et Tissu -Terminé">
+    <list default="true" id="8d2533a1-8775-42d1-a1cf-48491284c5c0" name="Default" comment="Affiche et Insertion Modele">
+      <change afterPath="$PROJECT_DIR$/src/app/sama-commande/sama-commande.component.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/sama-commande/sama-commande.component.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/sama-commande/sama-commande.component.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/sama-commande/sama-commande.module.ts" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/app/sama-commande/sama-commande.routing.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/app.module.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.module.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/app.routing.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/app.routing.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/collection/ajout-preference/ajout-preference.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/collection/ajout-preference/ajout-preference.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/collection/ajout-preference/ajout-preference.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/collection/ajout-preference/ajout-preference.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/collection/client/client.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/collection/client/client.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/collection/liste-collection/liste-collection.component.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/collection/liste-collection/liste-collection.component.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/collection/liste-collection/liste-collection.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/collection/liste-collection/liste-collection.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/collection/liste-collection/liste-collection.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/collection/liste-collection/liste-collection.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/collection/liste-modele/liste-modele.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/collection/liste-modele/liste-modele.component.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/collection/liste-modele/liste-modele.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/collection/liste-modele/liste-modele.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/collection/type-tissu/type-tissu.component.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/collection/type-tissu/type-tissu.component.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/app/layouts/admin/admin-layout.component.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/layouts/admin/admin-layout.component.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/app/shared/menu-items/menu-items.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app/shared/menu-items/menu-items.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.html" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/service-categorie.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/service-categorie.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/service-client-service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/service-collection.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/service-collection.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/service-commande-service.ts" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/service-config.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/service-config.service.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/service/service-modele.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/service-modele.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/service-preference.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/service-preference.service.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/service/service-type-tissu.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/service/service-type-tissu.service.ts" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/dist/" />
     <ignored path="$PROJECT_DIR$/tmp/" />
@@ -46,24 +32,10 @@
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
       <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/app/sama-modele/sama-modele.component.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="62" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
-              <folding>
-                <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#1;n#!!top" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/app/sama-modele/sama-modele.component.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+            <state relative-caret-position="150">
+              <caret line="164" column="28" lean-forward="true" selection-start-line="164" selection-start-column="28" selection-end-line="164" selection-end-column="28" />
               <folding>
                 <element signature="e#0#50#0" expanded="true" />
               </folding>
@@ -74,10 +46,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/service/service-modele.service.ts">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="330">
-              <caret line="34" column="43" lean-forward="true" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
+            <state relative-caret-position="325">
+              <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
               <folding>
                 <element signature="e#0#43#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/app/sama-preference/sama-preference.component.ts">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="201">
+              <caret line="71" column="22" lean-forward="true" selection-start-line="71" selection-start-column="22" selection-end-line="82" selection-end-column="9" />
+              <folding>
+                <element signature="e#0#50#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/app/sama-modele/sama-modele.component.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="307">
+              <caret line="51" column="88" selection-start-line="51" selection-start-column="88" selection-end-line="51" selection-end-column="88" />
+              <folding>
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+                <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#1;n#!!top" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -96,10 +94,6 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/app/dashboard/dashboard.component.html" />
-        <option value="$PROJECT_DIR$/src/app/collection/ajout-modele/ajout-modele.component.html" />
-        <option value="$PROJECT_DIR$/src/app/collection/ajout-collection/ajout-collection.component.html" />
-        <option value="$PROJECT_DIR$/src/app/collection/ajout-collection/ajout-collection.component.ts" />
         <option value="$PROJECT_DIR$/src/app/model/model.categorie.ts" />
         <option value="$PROJECT_DIR$/src/app/collection/ajout-categorie/ajout-categorie.component.html" />
         <option value="$PROJECT_DIR$/src/app/collection/ajout-categorie/ajout-categorie.component.ts" />
@@ -122,13 +116,11 @@
         <option value="$PROJECT_DIR$/src/app/collection/type-tissu/type-tissu.component.html" />
         <option value="$PROJECT_DIR$/src/app/collection/type-tissu/type-tissu.component.ts" />
         <option value="$PROJECT_DIR$/src/app/collection/ajout-preference/ajout-preference.component.html" />
-        <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
         <option value="$PROJECT_DIR$/src/app/collection/liste-modele/liste-modele.component.html" />
         <option value="$PROJECT_DIR$/src/app/collection/liste-collection/liste-collection.component.css" />
         <option value="$PROJECT_DIR$/src/app/collection/liste-collection/liste-collection.component.ts" />
         <option value="$PROJECT_DIR$/src/app/collection/liste-collection/liste-collection.component.html" />
         <option value="$PROJECT_DIR$/src/app/collection/liste-modele/liste-modele.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/shared/menu-items/menu-items.ts" />
         <option value="$PROJECT_DIR$/src/index.html" />
         <option value="$PROJECT_DIR$/src/app/sama-collection/sama-collection.component.ts" />
         <option value="$PROJECT_DIR$/src/app/sama-preference/sama-preference.component.ts" />
@@ -142,9 +134,17 @@
         <option value="$PROJECT_DIR$/src/service/service-categorie.service.ts" />
         <option value="$PROJECT_DIR$/src/app/sama-categorie/sama-categorie.component.html" />
         <option value="$PROJECT_DIR$/src/app/sama-categorie/sama-categorie.component.ts" />
-        <option value="$PROJECT_DIR$/src/app/sama-modele/sama-modele.component.html" />
+        <option value="$PROJECT_DIR$/src/app/shared/menu-items/menu-items.ts" />
+        <option value="$PROJECT_DIR$/src/app/app.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/sama-commande/sama-preference.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/sama-commande/sama-commande.routing.ts" />
+        <option value="$PROJECT_DIR$/src/app/sama-commande/sama-commande.module.ts" />
+        <option value="$PROJECT_DIR$/src/app/sama-commande/sama-commande.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/sama-commande/sama-commande.component.html" />
+        <option value="$PROJECT_DIR$/src/app/sama-modele/sama-modele.routing.ts" />
         <option value="$PROJECT_DIR$/src/service/service-modele.service.ts" />
         <option value="$PROJECT_DIR$/src/app/sama-modele/sama-modele.component.ts" />
+        <option value="$PROJECT_DIR$/src/app/sama-modele/sama-modele.component.html" />
       </list>
     </option>
   </component>
@@ -160,6 +160,7 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -202,7 +203,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -217,11 +217,12 @@
     <property name="ts.external.directory.path" value="C:\Users\Shams\git\sama-back\node_modules\typescript\lib" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Shams\git\sama-back\src\app" />
+      <recent name="C:\Users\Shams\Desktop\flat-lite\src\assets\images\preference" />
       <recent name="C:\Users\Shams\Desktop\flat-lite\src\service" />
     </key>
-    <key name="CopyFile.RECENT_KEYS">
-      <recent name="C:\Users\Shams\Desktop\flat-lite\src\assets\images\preference" />
+    <key name="MoveFile.RECENT_KEYS">
       <recent name="C:\Users\Shams\Desktop\flat-lite\src\service" />
     </key>
   </component>
@@ -275,7 +276,10 @@
       <workItem from="1548918076534" duration="3885000" />
       <workItem from="1548929899387" duration="58752000" />
       <workItem from="1549127891099" duration="342000" />
-      <workItem from="1549269090899" duration="27289000" />
+      <workItem from="1549269090899" duration="29714000" />
+      <workItem from="1549388162947" duration="887000" />
+      <workItem from="1549389780151" duration="663000" />
+      <workItem from="1549443340784" duration="26141000" />
     </task>
     <task id="LOCAL-00001" summary="Modification Ajout préférence">
       <created>1548940774397</created>
@@ -333,11 +337,18 @@
       <option name="project" value="LOCAL" />
       <updated>1549016782540</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Affiche et Insertion Modele">
+      <created>1549304186781</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1549304186781</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="207140000" />
+    <option name="totallyTimeSpent" value="237256000" />
   </component>
   <component name="TodoView">
     <todo-panel id="selected-file">
@@ -352,7 +363,7 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="true" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4804878" visible="true" weight="0.27458397" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" sideWeight="0.4804878" visible="true" weight="0.26172465" />
       <window_info id="Structure" order="1" weight="0.25" />
       <window_info id="npm" order="2" sideWeight="0.5195122" side_tool="true" weight="0.17549168" />
       <window_info id="Favorites" order="3" side_tool="true" />
@@ -365,7 +376,7 @@
       <window_info anchor="bottom" id="TODO" order="6" weight="0.3289689" />
       <window_info anchor="bottom" id="Version Control" order="7" />
       <window_info anchor="bottom" id="TypeScript" order="8" />
-      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49924126" visible="true" weight="0.13747954" />
+      <window_info anchor="bottom" id="Terminal" order="9" sideWeight="0.49924126" visible="true" weight="0.17184943" />
       <window_info anchor="bottom" id="Event Log" order="10" sideWeight="0.5007587" side_tool="true" weight="0.18333334" />
       <window_info anchor="bottom" id="Docker" order="11" show_stripe_button="false" />
       <window_info anchor="bottom" id="Database Changes" order="12" />
@@ -402,66 +413,10 @@
     <MESSAGE value="Modification Tissu" />
     <MESSAGE value="Ajout propriété" />
     <MESSAGE value="Ajout Preference et Propriété -Terminé&#10;&#10;Ajout Type Tissu et Tissu -Terminé" />
-    <option name="LAST_COMMIT_MESSAGE" value="Ajout Preference et Propriété -Terminé&#10;&#10;Ajout Type Tissu et Tissu -Terminé" />
+    <MESSAGE value="Affiche et Insertion Modele" />
+    <option name="LAST_COMMIT_MESSAGE" value="Affiche et Insertion Modele" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/service/service-client-service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="236">
-          <caret line="16" column="47" selection-start-line="16" selection-start-column="47" selection-end-line="16" selection-end-column="47" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/service-commande-service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" column="43" selection-start-line="6" selection-start-column="43" selection-end-line="6" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/components/basic/basic.routing.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="229">
-          <caret line="39" column="23" lean-forward="true" selection-start-line="39" selection-start-column="23" selection-end-line="39" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/collection/ajout-tissu/ajout-tissu.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="25">
-          <caret line="10" column="2" lean-forward="true" selection-start-line="10" selection-start-column="2" selection-end-line="19" selection-end-column="4" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/collection/type-tissu/type-tissu.component.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="119">
-          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/service-tissu.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="287">
-          <caret line="28" lean-forward="true" selection-start-line="28" selection-end-line="28" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/collection/ajout-categorie/ajout-categorie.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-98">
@@ -671,23 +626,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/shared/menu-items/menu-items.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1067">
-          <caret line="88" column="14" selection-start-line="88" selection-start-column="14" selection-end-line="88" selection-end-column="14" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="194">
-          <caret line="70" column="5" lean-forward="true" selection-start-line="70" selection-start-column="5" selection-end-line="70" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#39#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/service/service-collection.service.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
@@ -720,16 +658,6 @@
     <entry file="file://$PROJECT_DIR$/src/app/sama-collection/sama-collection.component.html">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/sama-collection/sama-collection.component.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="238">
-          <caret line="44" column="43" selection-start-line="44" selection-start-column="43" selection-end-line="51" selection-end-column="6" />
-          <folding>
-            <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/sama-modele/sama-modele.component.css">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -761,16 +689,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/service-categorie.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="279">
-          <caret line="17" column="3" lean-forward="true" selection-start-line="17" selection-start-column="3" selection-end-line="17" selection-end-column="3" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/sama-categorie/sama-categorie.component.ts">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="160">
@@ -781,10 +699,80 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/shared/menu-items/menu-items.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="285">
+          <caret line="72" column="31" lean-forward="true" selection-start-line="72" selection-start-column="31" selection-end-line="72" selection-end-column="31" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/app.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="278">
+          <caret line="66" column="44" selection-start-line="66" selection-start-column="44" selection-end-line="66" selection-end-column="44" />
+          <folding>
+            <element signature="e#0#39#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/sama-commande/sama-commande.component.html">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/sama-commande/sama-commande.routing.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="37" lean-forward="true" selection-start-line="5" selection-start-column="37" selection-end-line="5" selection-end-column="37" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/sama-commande/sama-commande.module.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="238">
+          <caret line="14" column="2" lean-forward="true" selection-start-line="14" selection-start-column="2" selection-end-line="14" selection-end-column="2" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/sama-collection/sama-collection.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="44" column="43" selection-start-line="44" selection-start-column="43" selection-end-line="51" selection-end-column="6" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/sama-commande/sama-commande.component.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="11" column="16" selection-start-line="11" selection-start-column="16" selection-end-line="11" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/service-preference.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="255">
+          <caret line="43" column="9" lean-forward="true" selection-start-line="43" selection-start-column="9" selection-end-line="43" selection-end-column="9" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/app/sama-preference/sama-preference.component.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="74" column="36" lean-forward="true" selection-start-line="74" selection-start-column="36" selection-end-line="74" selection-end-column="36" />
+        <state relative-caret-position="323">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="183" />
           <folding>
             <element signature="n#style#0;n#label#0;n#div#0;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
             <element signature="n#style#0;n#label#0;n#div#1;n#div#0;n#form#0;n#div#0;n#div#0;n#div#0;n#div#2;n#!!top" expanded="true" />
@@ -792,54 +780,71 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/service-preference.service.ts">
+    <entry file="file://$PROJECT_DIR$/src/service/service-categorie.service.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="34" column="4" lean-forward="true" selection-start-line="34" selection-start-column="4" selection-end-line="45" selection-end-column="5" />
+        <state relative-caret-position="323">
+          <caret line="30" column="3" lean-forward="true" selection-start-line="30" selection-start-column="3" selection-end-line="30" selection-end-column="3" />
           <folding>
             <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/app/sama-modele/sama-modele.component.html">
+    <entry file="file://$PROJECT_DIR$/src/app/sama-modele/sama-modele.routing.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="62" selection-start-line="13" selection-start-column="62" selection-end-line="13" selection-end-column="62" />
+        <state relative-caret-position="68">
+          <caret line="4" column="13" lean-forward="true" selection-start-line="4" selection-start-column="13" selection-end-line="4" selection-end-column="13" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/node_modules/typescript/lib/lib.dom.d.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="17">
+          <caret line="14793" column="12" selection-start-line="14793" selection-start-column="12" selection-end-line="14793" selection-end-column="12" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/service/service-modele.service.ts">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="325">
+          <caret line="40" column="59" selection-start-line="40" selection-start-column="59" selection-end-line="40" selection-end-column="59" />
+          <folding>
+            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/sama-preference/sama-preference.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="272">
-          <caret line="49" column="8" selection-start-line="49" selection-start-column="8" selection-end-line="49" selection-end-column="47" />
+        <state relative-caret-position="201">
+          <caret line="71" column="22" lean-forward="true" selection-start-line="71" selection-start-column="22" selection-end-line="82" selection-end-column="9" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/service/service-modele.service.ts">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="330">
-          <caret line="34" column="43" lean-forward="true" selection-start-line="34" selection-start-column="43" selection-end-line="34" selection-end-column="43" />
-          <folding>
-            <element signature="e#0#43#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/app/sama-modele/sama-modele.component.ts">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="221">
-          <caret line="13" column="13" selection-start-line="13" selection-start-column="13" selection-end-line="13" selection-end-column="13" />
+        <state relative-caret-position="150">
+          <caret line="164" column="28" lean-forward="true" selection-start-line="164" selection-start-column="28" selection-end-line="164" selection-end-column="28" />
           <folding>
             <element signature="e#0#50#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app/sama-modele/sama-modele.component.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="307">
+          <caret line="51" column="88" selection-start-line="51" selection-start-column="88" selection-end-line="51" selection-end-column="88" />
+          <folding>
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#1;n#div#0;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#1;n#div#1;n#div#1;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#div#2;n#div#1;n#div#1;n#!!top" expanded="true" />
           </folding>
         </state>
       </provider>
