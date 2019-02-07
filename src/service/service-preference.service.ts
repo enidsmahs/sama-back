@@ -52,4 +52,17 @@ export class ServicePreferenceService {
       formData.append('image', image);
       return this.http.post('http://192.168.1.114:8080/', formData).map(res => res);
     }
+
+    deletePreference (id: number) {
+      return this.http.get('http://192.168.1.114:8080/deletePreference/' + id).subscribe(
+        (res) => {
+          alert('préférence supprimmée...');
+        },
+        err => console.error(err)
+      );
+    }
+
+    updatePreference() {
+
+    }
 }

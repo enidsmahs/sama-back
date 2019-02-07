@@ -20,5 +20,14 @@ export class ServiceCollectionService {
     return this.http.get('http://192.168.1.114:8080/getAllCollection').map(data => data);
   }
 
+  deleteCollection (id: number) {
+    return this.http.get('http://192.168.1.114:8080/deleteCollection/' + id).subscribe(
+      (res) => {
+        alert('collection supprimmée...');
+      },
+      err => console.error(err)
+    );
+  }
+
 
 }

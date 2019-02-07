@@ -30,4 +30,8 @@ export class ServiceCategorieService {
     );
   }
 
+  updateCat(Cate: Categorie, id: number) {
+
+  }
+
 }

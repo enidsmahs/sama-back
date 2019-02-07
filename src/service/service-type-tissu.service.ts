@@ -44,4 +44,17 @@ export class ServiceTypeTissuService {
       });
       return this.http.request(req);
     }
+
+    deleteTissu (id: number) {
+      return this.http.delete('http://192.168.1.114:8080/deleteTissu/' + id).subscribe(
+        (res) => {
+          alert('tissu supprimmé...');
+        },
+        err => console.error(err)
+      );
+    }
+
+    updateTissu() {
+
+    }
 }
