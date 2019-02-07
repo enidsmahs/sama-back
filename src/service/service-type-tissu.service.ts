@@ -54,7 +54,12 @@ export class ServiceTypeTissuService {
       );
     }
 
-    updateTissu() {
-
+    updateTissu(id: number, tissu: any) {
+      return this.http.put('http://192.168.1.114:8080/updateTissu/' + id, tissu).subscribe(
+        (res) => {
+          alert('tissu supprimmé...');
+        },
+        err => console.error(err)
+      );
     }
 }

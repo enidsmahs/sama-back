@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { ServiceConfigService } from '../../service/service-config.service';
+import {ServiceCommandeService} from '../../service/service-commande.service';
 
 @Component({
     selector: 'app-sama-commande',
@@ -9,11 +10,24 @@ import { ServiceConfigService } from '../../service/service-config.service';
 
 export class SamaCommandeComponent implements OnInit {
 
+  samaCommande: any;
+
     constructor(
-        private serviceConfig: ServiceConfigService
+        private serviceConfig: ServiceConfigService,
+        private serviceCommande: ServiceCommandeService
     ) {}
 
     ngOnInit() {}
+
+    getCommande() {
+      this.serviceCommande.getCommande()
+        .subscribe(res => {
+            this.samaCommande = res;
+          },
+          err => {
+            console.log(err);
+          })
+    }
 
     getHost() {
         return this.serviceConfig.host();

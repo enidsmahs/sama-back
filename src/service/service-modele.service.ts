@@ -3,7 +3,8 @@ import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {forEach} from '@angular/router/src/utils/collection';
 
-const url = 'http://192.168.1.120:8080/';
+const url = 'http://192.168.1.114:8080/';
+
 @Injectable()
 export class ServiceModeleService {
 
@@ -17,7 +18,7 @@ export class ServiceModeleService {
 
 
   saveModele() {
-    return this.http.post('http://192.168.1.114:8080/saveModele', this.modele).subscribe(
+    return this.http.post(url+'/saveModele', this.modele).subscribe(
       (res) => {
         alert('modele enrégistrée...');
       },
@@ -27,7 +28,7 @@ export class ServiceModeleService {
   }
 
   getModele() {
-    return this.http.get('http://192.168.1.114:8080/getAllModele').map(res => res);
+    return this.http.get(url + '/getAllModele').map(res => res);
   }
 
   uploadFile1(modele: any, file: File[]): Observable<HttpEvent<{}>> {
@@ -38,14 +39,14 @@ export class ServiceModeleService {
     formdata.append('modele', new Blob([JSON.stringify(modele)], {
       type: 'application/json'
     }));
-    const req= new HttpRequest('POST','http://192.168.1.114:8080/saveModeleImage',formdata,{
+    const req= new HttpRequest('POST',url + '/saveModeleImage',formdata,{
       reportProgress:false,
     });
     return this.http.request(req);
   }
 
   deleteModele (id: number) {
-    return this.http.delete('http://192.168.1.114:8080/deleteModele/' + id).subscribe(
+    return this.http.delete(url + '/deleteModele/' + id).subscribe(
       (res) => {
         alert('modèle supprimmé...');
       },
