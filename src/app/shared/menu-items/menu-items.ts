@@ -65,6 +65,12 @@ const MENUITEMS = [
       },
       {
         state: 'sama-modele',
+        name: 'Nouveau modèle',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
+      },
+      {
+        state: 'sama-liste-modele',
         name: 'Mes modèles',
         type: 'link',
         icon: 'ti-layout-sidebar-left'

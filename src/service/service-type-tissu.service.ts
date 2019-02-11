@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
+import {ServiceConfigService} from './service-config.service';
 
 @Injectable()
 export class ServiceTypeTissuService {
@@ -11,11 +12,11 @@ export class ServiceTypeTissuService {
         this.typeTissu = typeTissu;
     }
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private url: ServiceConfigService) { }
 
 
     saveTypeTissu() {
-        return this.http.post('http://192.168.1.114:8080/saveTypeTissu', this.typeTissu).subscribe(
+        return this.http.post(this.url.host()+'/saveTypeTissu', this.typeTissu).subscribe(
             (res) => {
                 alert('preference enrégistrée...');
             },
@@ -25,11 +26,11 @@ export class ServiceTypeTissuService {
     }
 
     getTypeTissu() {
-      return this.http.get('http://192.168.1.114:8080/getAllTypeTissu').map(data => data);
+      return this.http.get(this.url.host()+'/getAllTypeTissu').map(data => data);
     }
 
     saveTissu(tissu: any) {
-      return this.http.post('http://192.168.1.114:8080/saveTissu', tissu).map(res => res);
+      return this.http.post(this.url.host()+'/saveTissu', tissu).map(res => res);
     }
 
     uploadFileTissu(tissu: any, file: File): Observable<HttpEvent<{}>> {
@@ -38,7 +39,7 @@ export class ServiceTypeTissuService {
       formdata.append('propriete', new Blob([JSON.stringify(tissu)], {
         type: 'application/json'
       }));
-      const req= new HttpRequest('POST','http://192.168.1.114:8080/saveTissuImage',formdata,{
+      const req= new HttpRequest('POST',this.url.host()+'/saveTissuImage',formdata,{
         reportProgress:false,
 
       });
@@ -46,7 +47,7 @@ export class ServiceTypeTissuService {
     }
 
     deleteTissu (id: number) {
-      return this.http.delete('http://192.168.1.114:8080/deleteTissu/' + id).subscribe(
+      return this.http.delete(this.url.host()+'/deleteTissu/' + id).subscribe(
         (res) => {
           alert('tissu supprimmé...');
         },
@@ -55,7 +56,7 @@ export class ServiceTypeTissuService {
     }
 
     updateTissu(id: number, tissu: any) {
-      return this.http.put('http://192.168.1.114:8080/updateTissu/' + id, tissu).subscribe(
+      return this.http.put(this.url.host()+'/updateTissu/' + id, tissu).subscribe(
         (res) => {
           alert('tissu supprimmé...');
         },

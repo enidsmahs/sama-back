@@ -1,0 +1,25 @@
+.yaga {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #9ad7fd;
+}
+
+.details {
+  background-color: #9ad7fd;
+}
+.fileContainer {
+  cursor: pointer;
+}
+
+.fileimage {
+  opacity: 0;
+  position: absolute;
+  z-index: -1;
+}
+
+.labelOne{
+  width: 20rem;
+}
+

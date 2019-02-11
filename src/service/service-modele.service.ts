@@ -2,8 +2,7 @@ import { Injectable } from '@angular/core';
 import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
 import {forEach} from '@angular/router/src/utils/collection';
-
-const url = 'http://192.168.1.114:8080/';
+import {ServiceConfigService} from './service-config.service';
 
 @Injectable()
 export class ServiceModeleService {
@@ -14,11 +13,11 @@ export class ServiceModeleService {
     this.modele = modele;
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private url: ServiceConfigService) { }
 
 
   saveModele() {
-    return this.http.post(url+'/saveModele', this.modele).subscribe(
+    return this.http.post(this.url.host()+'/saveModele', this.modele).subscribe(
       (res) => {
         alert('modele enrégistrée...');
       },
@@ -28,34 +27,38 @@ export class ServiceModeleService {
   }
 
   getModele() {
-    return this.http.get(url + '/getAllModele').map(res => res);
+    return this.http.get(this.url.host() + '/getAllModele').map(res => res);
   }
 
-  uploadFile1(modele: any, file: File[]): Observable<HttpEvent<{}>> {
+  uploadFile1(modele: any, files: File[]): Observable<HttpEvent<{}>> {
     const formdata: FormData=new FormData();
-    for (let i = 0; i > file.length; i++) {
-      formdata.append('images', file[i]);
+    for (let file of files) {
+      console.log('defvzfvevc');
+      formdata.append('images', file);
     }
     formdata.append('modele', new Blob([JSON.stringify(modele)], {
       type: 'application/json'
     }));
-    const req= new HttpRequest('POST',url + '/saveModeleImage',formdata,{
-      reportProgress:false,
+    const req= new HttpRequest('POST',this.url.host() + '/saveModeleImage',formdata,{
+      reportProgress:true,
     });
     return this.http.request(req);
   }
 
   deleteModele (id: number) {
-    return this.http.delete(url + '/deleteModele/' + id).subscribe(
-      (res) => {
-        alert('modèle supprimmé...');
-      },
-      err => console.error(err)
-    );
+    return this.http.delete(this.url.host() + '/deleteModele/' + id);
   }
 
-  updateModele() {
+  saveCollections(idModel: number, collection: any) {
+    return this.http.post(this.url.host()+'/'+idModel+'/collections', collection);
+  }
 
+  savePreference(idModel: number, pref: any) {
+    return this.http.post(this.url.host()+'/'+idModel+'/preferences', pref);
+  }
+
+  saveTissu(idModel: number, tissu: any) {
+    return this.http.post(this.url.host()+'/'+idModel+'/typeTissus', tissu);
   }
 
 }

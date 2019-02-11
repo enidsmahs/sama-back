@@ -1,15 +1,16 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import {Categorie} from '../app/model/model.categorie';
+import {ServiceConfigService} from './service-config.service';
 
 
 @Injectable()
 export class ServiceCategorieService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private url: ServiceConfigService) { }
 
   saveCategorie (categorie: Categorie) {
-    return this.http.post('http://192.168.1.114:8080/saveCategorie', categorie).subscribe(
+    return this.http.post(this.url.host()+'/saveCategorie', categorie).subscribe(
       (res) => {
         alert('catégorie enrégistrée...');
       },
@@ -18,11 +19,11 @@ export class ServiceCategorieService {
   }
 
   getAllCategorie () {
-    return this.http.get('http://192.168.1.114:8080/getAllCategorie').map(data => data);
+    return this.http.get(this.url.host()+'/getAllCategorie').map(data => data);
   }
 
   deleteCategorie (id: number) {
-    return this.http.get('http://192.168.1.114:8080/deleteCategorie/' + id).subscribe(
+    return this.http.get(this.url.host()+'/deleteCategorie/' + id).subscribe(
       (res) => {
         alert('catégorie supprimmée...');
       },

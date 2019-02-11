@@ -32,8 +32,8 @@ export class AjoutTissuComponent implements OnInit {
     this.SamaTissu.description.nom = 'azerty';
     this.SamaTissu.description.tissu = 'azerty';
 
-    this.service.setTissu(this.SamaTissu);
-    this.service.saveTissu();
+   // this.service.setTissu(this.SamaTissu);
+   // this.service.saveTissu();
   }
 
 }

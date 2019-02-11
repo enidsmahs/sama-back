@@ -23,6 +23,9 @@ import { ServiceModeleService } from '../service/service-modele.service';
 import {ServiceTypeTissuService} from '../service/service-type-tissu.service';
 import {ServiceCommandeService} from '../service/service-commande.service';
 import {ServiceConfigService} from '../service/service-config.service';
+import {SamaListeModeleModule} from './sama-liste-modele/sama-liste-modele.module';
+import {SamaListeModeleRoutes} from './sama-liste-modele/sama-liste-modele.routing';
+import {SamaListeModeleComponent} from './sama-liste-modele/sama-liste-modele.component';
 
 
 @NgModule({
@@ -31,7 +34,7 @@ import {ServiceConfigService} from '../service/service-config.service';
     AdminLayoutComponent,
     AuthLayoutComponent,
     BreadcrumbsComponent,
-    TitleComponent
+    TitleComponent,
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,7 @@ import {ServiceConfigService} from '../service/service-config.service';
     FormsModule,
     HttpModule,
     ScrollModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   exports: [ScrollModule],
   providers: [

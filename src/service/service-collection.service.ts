@@ -1,9 +1,10 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {ServiceConfigService} from './service-config.service';
 @Injectable()
 export class ServiceCollectionService {
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private url: ServiceConfigService) { }
 
   collection: any;
 
@@ -12,16 +13,16 @@ export class ServiceCollectionService {
   }
 
   saveCollection () {
-    return this.http.post('http://192.168.1.114:8080/saveCollection', this.collection)
+    return this.http.post(this.url.host()+'/saveCollection', this.collection)
       .map(res => res);
   }
 
   getAllCollection () {
-    return this.http.get('http://192.168.1.114:8080/getAllCollection').map(data => data);
+    return this.http.get(this.url.host()+'/getAllCollection').map(data => data);
   }
 
   deleteCollection (id: number) {
-    return this.http.get('http://192.168.1.114:8080/deleteCollection/' + id).subscribe(
+    return this.http.get(this.url.host()+'/deleteCollection/' + id).subscribe(
       (res) => {
         alert('collection supprimmée...');
       },

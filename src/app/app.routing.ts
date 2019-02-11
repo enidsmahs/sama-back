@@ -63,8 +63,14 @@ export const AppRoutes: Routes = [{
       path: 'sama-modele',
       loadChildren: './sama-modele/sama-modele.module#SamaModeleModule'
     }, {
+      path: 'sama-liste-modele',
+      loadChildren: './sama-liste-modele/sama-liste-modele.module#SamaListeModeleModule'
+    }, {
       path: 'sama-commande',
       loadChildren: './sama-commande/sama-commande.module#SamaCommandeModule'
+    }, {
+      path: 'sama-user',
+      loadChildren: './sama-user/sama-user.module#SamaUserModule'
     }
   ]
 }, {

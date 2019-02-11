@@ -1,0 +1,143 @@
+<div class="row">
+  <!--
+  Affichage liste modele -->
+
+  <div class="col-sm-3">
+    <p>Liste des modèles</p>
+    <ul class="list-group">
+      <li class="list-group-item yaga" *ngFor="let modele of SamaModeles"
+          [class.selected]="modele === samaModeleSelected"
+          (click)="showClick(modele)">
+        <a>{{ modele.nom }}</a>
+      </li>
+    </ul>
+  </div>
+
+  <!--
+Affichage des tissus -->
+  <div class="col-sm-9 col-lg-9">
+    <div class="row details" *ngIf="samaModeleSelected.nom != '' ">
+      <div class="row">
+        <div class="d-flex align-items-center">
+          <div class="mr-auto  h1">{{samaModeleSelected.nom}}</div>
+          <div>
+            <i type="button" class="btn btn-primary btn-sm btn icofont icofont-ui-delete"
+               (click)="deleteModele(samaModeleSelected.idModel)">delete</i>
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="d-flex">
+          <div class="card mx-2" style="width: 12rem; display: inline-block;"
+               *ngFor="let modele_collection of samaModeleSelected.images">
+            <img class="card-img-top" width="100rem" height="100rem" src="{{getHost()}}/{{ modele_collection.nom }}"
+                 alt="Card image cap">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="samaModeleSelected.nom != '' ">
+      <div>
+        <form #f="ngForm" (ngSubmit)="recupCollection(f.value)">
+          <div class="form-group">
+            <label for="">Collections</label>
+            <select class="form-control form-control-round" name="sama_collection" id="" ngModel required>
+              <option *ngFor="let collection of collections"
+                      value="{{collection.idCollection}}">{{collection.nom}}</option>
+            </select>
+          </div>
+          <div class="d-flex justify-content-start">
+            <button type="submit" class="btn btn-xs btn-info">ajouter</button>
+          </div>
+        </form>
+        <div class="d-flex justify-content-start">
+          <button type="submit" class="btn btn-xs btn-primary" (click)="saveCollection()">save collection</button>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="card mx-2" style="width: 8rem; height: 3rem; display: inline-block;"
+             *ngFor="let col of tabCollection">
+          <div class="card-body">
+            <h5 class="card-title">{{ col.nom }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="row mt-2" *ngIf="samaModeleSelected.nom != '' ">
+      <div>
+        <form #g='ngForm' (ngSubmit)='affichePreference(g.value)'>
+          <div class="form-group">
+            <label>Préférences</label>
+            <select class="form-control form-control-round" name="sama_preference" ngModel required>
+              <option value="0" class="text-muted" selected>...</option>
+              <option *ngFor='let p of preferences' value='{{p.idPreference}}'>{{p.nom}}</option>
+            </select>
+          </div>
+          <div class="d-flex justify-content-start">
+            <button type="submit"  class="btn btn-xs btn-info">afficher</button>
+          </div>
+        </form>
+
+      </div>
+      <form #f="ngForm" (ngSubmit)="savePropriete(f.value)">
+        <div *ngFor="let pr of tabPreference">
+          <div>
+            {{pr.nom}}
+          </div>
+          <div>
+              <div *ngFor="let prop of pr.proprietes" class="m-1 border">
+                <input type="checkbox" value="{{prop.valeur}}" [(ngModel)]='prop.selected' value="{{prop.value}}" name="sama_propriete" >
+                <img src="{{getHost()}}/{{ prop.image }}" alt="" width="30px" height="30px">
+                <span>{{prop.valeur}}</span>
+              </div>
+          </div>
+        </div>
+        <div class="form-group d-flex justify-content-start">
+          <button type="submit" class="btn btn-xs btn-primary">save propriétés</button>
+        </div>
+      </form>
+    </div>
+
+    <div class="">
+      <div class="card mx-2" style="width: 8rem; height: 3rem; display: inline-block;"
+           *ngFor="let prop of samaModeleSelected.proprietes">
+        <div class="card-body">
+          <h5 class="card-title">{{ prop.valeur }}</h5>
+        </div>
+      </div>
+    </div>
+
+    <div class="row" *ngIf="samaModeleSelected.nom != '' ">
+      <div>
+        <form #f="ngForm" (ngSubmit)="recupTypeTissu(f.value)">
+          <div class="form-group">
+            <label for="">Tissus</label>
+            <select class="form-control form-control-round" name="sama_tissu" ngModel required>
+              <option *ngFor="let type of ligneModelTissus"
+                      value="{{type.idTypeTissu}}">{{type.nom}}</option>
+            </select>
+          </div>
+          <div class="d-flex justify-content-start">
+            <button type="submit" class="btn btn-xs btn-info">ajouter</button>
+          </div>
+        </form>
+        <div class="d-flex justify-content-start">
+          <button type="submit" class="btn btn-xs btn-primary" (click)="saveTypeTissu()">save tissu</button>
+        </div>
+      </div>
+
+      <div class="">
+        <div class="card mx-2" style="width: 8rem; height: 3rem; display: inline-block;"
+             *ngFor="let tissu of samaModeleSelected.ligneModelTissus">
+          <div class="card-body">
+            <h5 class="card-title">{{ tissu.typeTissu.nom }}</h5>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import {HttpClient, HttpEvent, HttpRequest} from '@angular/common/http';
 import {Observable} from 'rxjs/Observable';
+import {ServiceConfigService} from './service-config.service';
 
 @Injectable()
 export class ServicePreferenceService {
@@ -11,11 +12,11 @@ export class ServicePreferenceService {
         this.preference = preference;
     }
 
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private url: ServiceConfigService) { }
 
 
     savePreference() {
-        return this.http.post('http://192.168.1.123:8080/savePreference', this.preference).subscribe(
+        return this.http.post('/savePreference', this.preference).subscribe(
             (res) => {
                 alert('preference enrégistrée...');
             },
@@ -25,11 +26,11 @@ export class ServicePreferenceService {
     }
 
     getPreference() {
-        return this.http.get('http://192.168.1.114:8080/getAllPreference').map(data => data);
+        return this.http.get(this.url.host()+'/getAllPreference').map(data => data);
     }
 
     savePropriete(propriete: any) {
-      return this.http.post('http://192.168.1.114:8080/savePropriete', propriete).map(res => res);
+      return this.http.post(this.url.host()+'/savePropriete', propriete).map(res => res);
     }
 
     uploadFile1(propriete: any, file: File): Observable<HttpEvent<{}>> {
@@ -38,7 +39,7 @@ export class ServicePreferenceService {
       formdata.append('propriete', new Blob([JSON.stringify(propriete)], {
         type: 'application/json'
     }));
-      const req= new HttpRequest('POST','http://192.168.1.114:8080/saveProprieteImage',formdata,{
+      const req= new HttpRequest('POST',this.url.host()+'/saveProprieteImage',formdata,{
           reportProgress:false,
 
       });
@@ -54,7 +55,7 @@ export class ServicePreferenceService {
     }
 
     deletePreference (id: number) {
-      return this.http.get('http://192.168.1.114:8080/deletePreference/' + id).subscribe(
+      return this.http.get(this.url.host()+'/deletePreference/' + id).subscribe(
         (res) => {
           alert('préférence supprimmée...');
         },
