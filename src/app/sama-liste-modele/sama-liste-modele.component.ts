@@ -110,7 +110,8 @@ export class SamaListeModeleComponent implements OnInit {
   showClick(modele: any) {
     this.samaModeleSelected = modele;
     this.tabCollection = this.samaModeleSelected.collections;
-    // this.tabPreference = this.samaModeleSelected.preferences
+    this.tabPreference = this.samaModeleSelected.preferences;
+    this.tabTissu = this.samaModeleSelected.ligneModelTissus;
   }
 
   setAdd(test1) {
@@ -125,11 +126,10 @@ export class SamaListeModeleComponent implements OnInit {
     this.serviceModele.deleteModele(samaModeleSelected).subscribe(
       (res) => {
         alert('modèle supprimmé...');
-        this.samaModeleSelected = res;
+        //this.samaModeleSelected = res;
       },
       err => console.error(err)
     );
-    this.route.navigate(['/sama-liste-model']);
   }
 
   tabCollection: Array<any> = [];
@@ -231,8 +231,8 @@ export class SamaListeModeleComponent implements OnInit {
       //
       console.log(res.body);
       console.log(res);
-     // this.samaModeleSelected.ligneModelTissus=res;
-      //this.tabTissu=res;
+      this.samaModeleSelected.ligneModelTissus=res;
+      this.tabTissu=res;
       // console.log((<any>res));
     }, err => console.error(err));
   }

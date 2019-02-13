@@ -1,0 +1,11 @@
+.yaga {
+  cursor: pointer;
+}
+
+.selected {
+  background-color: #9ad7fd;
+}
+
+.details {
+  background-color: #9ad7fd;
+}

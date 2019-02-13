@@ -4,11 +4,12 @@ import {BrowserModule} from '@angular/platform-browser';
 import {RouterModule} from '@angular/router';
 import {SamaUserRoutes} from './sama-user.routing';
 import {SamaUserComponent} from './sama-user.component';
+import {CommonModule} from '@angular/common';
 
 @NgModule({
   imports:[
     SharedModule,
-    BrowserModule,
+    CommonModule,
     RouterModule.forChild(SamaUserRoutes)
   ],
   declarations:[

@@ -80,6 +80,12 @@ const MENUITEMS = [
         name: 'Mes commandes',
         type: 'link',
         icon: 'ti-layout-sidebar-left'
+      },
+      {
+        state: 'sama-user',
+        name: 'Utilisateurs',
+        type: 'link',
+        icon: 'ti-layout-sidebar-left'
       }
     ]
   },

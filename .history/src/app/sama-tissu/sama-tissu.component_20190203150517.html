@@ -1,0 +1,67 @@
+<!--
+Nouvelle type tissu -->
+<div class="row">
+    <div class="col-sm-6">
+        <form #f="ngForm" (ngSubmit)="enregistrerTypeTissu(f.value)">
+            <div class="form-group">
+                <label>Type de tissu</label>
+                <input type="text" class="form-control form-control-round" name="nom_type_tissu" required ngModel>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Ajout</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div class="row">
+    <!--
+  Affichage liste des préférences -->
+
+    <div class="col-sm-3">
+        <p>Mes type de tissu <i class="icofont sicofont-1x icofont-ui-add"></i></p>
+        <ul class="list-group">
+            <li class="list-group-item yaga" *ngFor="let typeTissu of SamaTypeTissus" [class.selected]="typeTissu === SamaTypeTissuSelected"
+                (click)="onSelect(type)">
+                <a>{{ typeTissu.nom }}</a>
+            </li>
+        </ul>
+    </div>
+    <!--
+Affichage des tissus -->
+    <div class="col-sm-9 col-lg-9 details" *ngIf="SamaTypeTissuSelected.nom != ''">
+        <div class="d-flex align-items-center">
+            <div class="mr-auto  h1">{{SamaTypeTissuSelected.nom}}</div>
+            <div class=" ">
+
+                <i class="btn btn-primary btn-sm btn icofont icofont-ui-add" (click)="setAdd(true)">Nouveau Tissu</i>
+            </div>
+        </div>
+        <div class="d-flex">
+            <div class="card mx-2" style="width: 12rem; display: inline-block;" *ngFor="let typeTissu of SamaTypeTissuSelected.tissus">
+                <img class="card-img-top" width="100rem" height="100rem" src="http://{{getHost()}}/{{ typeTissu.image }}"
+                    alt="Card image cap">
+                <div class="card-body">
+                    <h5 class="card-title">{{ typeTissu.nom }}</h5>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div *ngIf="add==true" class="position-fixed  bg-dark w-50 h-50" style="top: 50%;left: 50%;">
+        <form #typeTissu="ngForm" (ngSubmit)="saveTissu(typeTissu.value)">
+            <div class="form-group">
+                <label for="nom_tissu">Nom:</label>
+                <input id="nom_tissu" type="text" name="nom" class="form-control" required ngModel>
+            </div>
+            <div class="form-group">
+                <label for="image_propriete">Image:</label>
+                <input id="image_propriete" name="image" type="file" class="form-control-file" (change)="selectFile($event)"
+                    ngModel>
+            </div>
+            <div>
+                <button type="submit" class="btn btn-primary mb-2">save tissu</button>
+            </div>
+        </form>
+    </div>
+</div>

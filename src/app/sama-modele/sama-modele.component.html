@@ -1,0 +1,46 @@
+<!--
+Nouvelle Modele -->
+
+<div class="row text-dark b">
+    <div class="col-sm-12 ">
+        <form #f="ngForm" (ngSubmit)="enregistrerModeleImage(f.value)" class="list-group ">
+          <div class="list-group-item">
+            <div class="form-group ">
+                <label class="labelOne p-2 " > 1- Nom modèle</label>
+                <input type="text" class="form-control" name="modele" required ngModel>
+            </div>
+          </div>
+          <div class="list-group-item">
+
+            <div class="d-flex justify-content-between">
+              <div class="d-flex ">
+                <h6 class=" labelOne p-2 ">2- Images</h6>
+              </div>
+              <div>
+                <input type="button" class="btn btn-primary btn-sm" id="id_new_image" value="new image"  (click)="addImage()" >
+              </div>
+
+            </div>
+            <div class="w-100">
+              <div id="bloc_image" class="d-flex align-content-start flex-wrap  w-100" >
+            <!--<div class="form-group" >-->
+              <!--<label for="image_modele">Image:</label>-->
+              <!--<input id="image_modele" name="image" type="file" class="form-control-file" (change)="selectFile($event)" ngModel>-->
+            <!--</div>-->
+
+              </div>
+            </div>
+          </div>
+          <!--<div class="list-group-item">-->
+            <!--<div class="form-group">-->
+              <!--<label class=" p-2 labelOne">3- Date</label>-->
+              <!--<input class="form-control" type="date" name="date" ngModel>-->
+            <!--</div>-->
+          <!--</div>-->
+
+            <div class="d-flex justify-content-center mt-2">
+                <button type="submit" class="btn btn-primary">Ajout</button>
+            </div>
+        </form>
+    </div>
+</div>

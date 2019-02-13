@@ -1,0 +1,22 @@
+<!--
+Nouvelle Modele -->
+
+<div class="row">
+    <div class="col-sm-6">
+        <form #f="ngForm" (ngSubmit)="enregistrerModele(f.value)">
+            <div class="form-group">
+                <label>Nom préférence</label>
+                <input type="text" class="form-control form-control-round" name="modele" required ngModel>
+            </div>
+            <div class="form-group">
+                <label>Date</label>
+                <input class="form-control" type="date" name="date" required ngModel>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary">Ajout</button>
+            </div>
+        </form>
+
+    </div>
+</div>
+<div class="row">
