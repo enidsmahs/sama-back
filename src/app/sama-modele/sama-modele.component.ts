@@ -171,12 +171,12 @@ export class SamaModeleComponent implements OnInit {
      getAllFiles(){
         let files: Array<any> = [];
         for(let index of this.files){
-            console.log('fffffffff');
-            console.log(index);
-            console.log(index);
+           // console.log('fffffffff');
+          //  console.log(index);
+          //  console.log(index);
             files.push(this.files[index]);
         }
-        console.log(files)
+       // console.log(files)
         return files;
      }
 
@@ -187,21 +187,10 @@ export class SamaModeleComponent implements OnInit {
      'nom': prop.modele,
      'date': prop.date
     }, this.getAllFiles()).subscribe((res: any) => {
-   //  if (res.type === 4) {
-     //  console.log('11111111' + res.body);
-       console.log(res.body);
-       console.log(res);
-     //  this.samaModeleSelected.push((res.body));
- //    }
+          //alert('modèle enrégisté...');
 
-   // console.log((<any>res));
-
-     // alert('modèle enrégistré')
-
-   }, err => console.error(err)
-  );
-
-
+     }, err => console.error(err)
+    );
   }
 
 }

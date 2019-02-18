@@ -2,10 +2,22 @@
   cursor: pointer;
 }
 
-.selected {
-  background-color: #9ad7fd;
+.selected1 {
+  background-color: white;
 }
 
 .details {
   background-color: #9ad7fd;
+}
+
+.itemCategorie{
+  text-decoration: none;
+}
+
+.itemCategorie:hover{
+  text-decoration: underline;
+}
+
+.listCategorie{
+  background-color: #3e5771;
 }

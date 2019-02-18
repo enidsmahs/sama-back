@@ -16,13 +16,7 @@ export class ServicePreferenceService {
 
 
     savePreference() {
-        return this.http.post('/savePreference', this.preference).subscribe(
-            (res) => {
-                alert('preference enrégistrée...');
-            },
-            err => {
-                console.log('Error');
-            });
+        return this.http.post(this.url.host()+'/savePreference', this.preference);
     }
 
     getPreference() {
@@ -55,12 +49,7 @@ export class ServicePreferenceService {
     }
 
     deletePreference (id: number) {
-      return this.http.get(this.url.host()+'/deletePreference/' + id).subscribe(
-        (res) => {
-          alert('préférence supprimmée...');
-        },
-        err => console.error(err)
-      );
+      return this.http.get(this.url.host()+'/deletePreference/' + id);
     }
 
     updatePreference() {

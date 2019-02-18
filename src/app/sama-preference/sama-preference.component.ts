@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ServicePreferenceService } from '../../service/service-preference.service';
 import { ServiceConfigService } from '../../service/service-config.service';
+import {Categorie} from '../model/model.categorie';
 
 @Component({
     selector: 'app-sama-preference',
@@ -10,25 +11,24 @@ import { ServiceConfigService } from '../../service/service-config.service';
 
 export class SamaPreferenceComponent implements OnInit {
     file: File = null;
+    methodeSave : boolean = false;
     SamaPreference = {
         'idPreference': 0,
         'nom': '',
-        'proprietes': [
-
-        ]
+        'proprietes': []
     };
 
     SamaPreferencesSelected: any = {
         'idPreference': 0,
         'nom': '',
-        'proprietes': [
-
-        ]
+        'proprietes': []
     };
 
     add = false;
 
-    SamaPreferences: any;
+    lengthPropriete = 0;
+
+    SamaPreferences = [];
     constructor(
         private servicePreference: ServicePreferenceService,
         private serviceConfig: ServiceConfigService
@@ -51,7 +51,7 @@ export class SamaPreferenceComponent implements OnInit {
     }
 
     getAllPreferences() {
-        return this.servicePreference.getPreference().subscribe((data) => {
+        return this.servicePreference.getPreference().subscribe((data: Array<any>) => {
             this.SamaPreferences = data;
         });
     }
@@ -60,7 +60,15 @@ export class SamaPreferenceComponent implements OnInit {
         this.SamaPreference.nom = SamaPreference.preference;
 
         this.servicePreference.setPreference(this.SamaPreference);
-        this.servicePreference.savePreference();
+        this.servicePreference.savePreference().subscribe(
+          (res) => {
+            //alert('preference enrégistrée...');
+            this.SamaPreferences.push(res);
+            this.SamaPreferencesSelected = res;
+          },
+          err => {
+            console.log('Error');
+          });
     }
 
     savePropriete(prop) {
@@ -84,5 +92,38 @@ export class SamaPreferenceComponent implements OnInit {
 
     getHost() {
         return this.serviceConfig.host();
+    }
+
+    deletePreference(id) {
+      this.servicePreference.deletePreference(id).subscribe(
+        (res) => {
+          // alert('catégorie supprimmée...');
+          if(res == true){
+            console.log("suppresion effectué au niveau de la BD")
+            console.log(id);
+            this.deleteInTableau(id);
+          }
+        },
+        err => console.error(err)
+      );
+    }
+
+    deleteInTableau(id){
+      console.log('non problem 1');
+      const index = this.getIndexTabById(id);
+      console.log('non problem 2');
+      if(index >= 0){
+        this.SamaPreferences.splice(index, 1);
+      }
+      console.log('non problem 3');
+    }
+
+    getIndexTabById(id: number){
+      const index = this.SamaPreferences.findIndex(
+        (s) => {
+          return s.idPreference === id;
+        }
+      );
+      return index;
     }
 }

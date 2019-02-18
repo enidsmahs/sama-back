@@ -48,7 +48,14 @@ export class SamaTissuComponent implements OnInit {
     /* console.log(this.samaTypeTissu);*/
 
     this.service.setTypeTissu(this.samaTypeTissu);
-    this.service.saveTypeTissu();
+    this.service.saveTypeTissu().subscribe(
+      (res) => {
+        alert('Type tissu enrégistré...');
+        this.SamaTypeTissus.push(res);
+      },
+      err => {
+        console.log('Error');
+      });
   }
 
   getAllTypeTissu() {
@@ -86,6 +93,35 @@ export class SamaTissuComponent implements OnInit {
         },
         err => console.error(err)
       );
+  }
+
+  deleteTypetissu(id) {
+    this.service.deleteTissu(id).subscribe(
+      (res) => {
+        alert('tissu supprimmé...');
+        this.deleteInTableau(id);
+      },
+      err => console.error(err)
+    )
+  }
+
+  deleteInTableau(id){
+    console.log('non problem 1');
+    const index = this.getIndexTabById(id);
+    console.log('non problem 2');
+    if(index >= 0){
+      this.SamaTypeTissus.splice(index, 1);
+    }
+    console.log('non problem 3');
+  }
+
+  getIndexTabById(id: number){
+    const index = this.SamaTypeTissus.findIndex(
+      (s) => {
+        return s.idTypeTissu === id;
+      }
+    );
+    return index;
   }
 
   getHost() {

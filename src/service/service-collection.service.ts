@@ -21,13 +21,16 @@ export class ServiceCollectionService {
     return this.http.get(this.url.host()+'/getAllCollection').map(data => data);
   }
 
+  getCollectionDetails (id: number) {
+    return this.http.get(this.url.host()+'/getCollectionDetails/' + id);
+  }
+
   deleteCollection (id: number) {
-    return this.http.get(this.url.host()+'/deleteCollection/' + id).subscribe(
-      (res) => {
-        alert('collection supprimmée...');
-      },
-      err => console.error(err)
-    );
+    return this.http.get(this.url.host()+'/deleteCollection/' + id);
+  }
+
+  updateCollection() {
+
   }
 
 

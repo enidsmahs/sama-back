@@ -9,3 +9,15 @@
 .details {
   background-color: #9ad7fd;
 }
+
+.itemPreference{
+  text-decoration: none;
+}
+
+.itemPreference:hover{
+  text-decoration: underline;
+}
+
+.listPreference{
+  background-color: #3e5771;
+}

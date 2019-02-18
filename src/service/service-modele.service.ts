@@ -15,15 +15,8 @@ export class ServiceModeleService {
 
   constructor(private http: HttpClient, private url: ServiceConfigService) { }
 
-
   saveModele() {
-    return this.http.post(this.url.host()+'/saveModele', this.modele).subscribe(
-      (res) => {
-        alert('modele enrégistrée...');
-      },
-      err => {
-        console.log('Error');
-      });
+    return this.http.post(this.url.host()+'/saveModele', this.modele);
   }
 
   getModele() {
@@ -33,7 +26,7 @@ export class ServiceModeleService {
   uploadFile1(modele: any, files: File[]): Observable<HttpEvent<{}>> {
     const formdata: FormData=new FormData();
     for (let file of files) {
-      console.log('defvzfvevc');
+      // console.log('defvzfvevc');
       formdata.append('images', file);
     }
     formdata.append('modele', new Blob([JSON.stringify(modele)], {

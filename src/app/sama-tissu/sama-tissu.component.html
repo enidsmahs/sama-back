@@ -24,6 +24,9 @@ Nouvelle type tissu -->
             <li class="list-group-item yaga" *ngFor="let typeTissu of SamaTypeTissus" [class.selected]="typeTissu === SamaTypeTissuSelected"
                 (click)="onSelect(typeTissu)">
                 <a>{{ typeTissu.nom }}</a>
+              <div class="float-right">
+                <i class="icofont icofont-ui-delete" (click)="deleteTypetissu(typeTissu.idTypeTissu)"></i>
+              </div>
             </li>
         </ul>
     </div>

@@ -16,13 +16,7 @@ export class ServiceTypeTissuService {
 
 
     saveTypeTissu() {
-        return this.http.post(this.url.host()+'/saveTypeTissu', this.typeTissu).subscribe(
-            (res) => {
-                alert('preference enrégistrée...');
-            },
-            err => {
-                console.log('Error');
-            });
+        return this.http.post(this.url.host()+'/saveTypeTissu', this.typeTissu);
     }
 
     getTypeTissu() {
@@ -30,7 +24,7 @@ export class ServiceTypeTissuService {
     }
 
     saveTissu(tissu: any) {
-      return this.http.post(this.url.host()+'/saveTissu', tissu).map(res => res);
+      return this.http.post(this.url.host()+'/saveTissu', tissu);
     }
 
     uploadFileTissu(tissu: any, file: File): Observable<HttpEvent<{}>> {
@@ -47,18 +41,13 @@ export class ServiceTypeTissuService {
     }
 
     deleteTissu (id: number) {
-      return this.http.delete(this.url.host()+'/deleteTissu/' + id).subscribe(
-        (res) => {
-          alert('tissu supprimmé...');
-        },
-        err => console.error(err)
-      );
+      return this.http.delete(this.url.host()+'/deleteTissu/' + id);
     }
 
     updateTissu(id: number, tissu: any) {
       return this.http.put(this.url.host()+'/updateTissu/' + id, tissu).subscribe(
         (res) => {
-          alert('tissu supprimmé...');
+          alert('tissu modifié...');
         },
         err => console.error(err)
       );

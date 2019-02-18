@@ -1,22 +1,7 @@
-<div class="row">
-  <!--
-  Affichage liste modele -->
 
-  <div class="col-sm-3">
-    <p>Liste des modèles</p>
-    <ul class="list-group">
-      <li class="list-group-item yaga" *ngFor="let modele of SamaModeles"
-          [class.selected]="modele === samaModeleSelected"
-          (click)="showClick(modele)">
-        <a>{{ modele.nom }}</a>
-      </li>
-    </ul>
-  </div>
+  <div class="w-100">
 
-  <!-- Affichage nom modele et image -->
-  <div class="col-sm-9 col-lg-9">
-
-    <div class="row ">
+    <div class="row w-100">
       <div class="list-group-item w-100" *ngIf="samaModeleSelected.nom != '' ">
         <div class="form-group ">
           <div>
@@ -131,4 +116,4 @@
 
   </div>
 
-</div>
+

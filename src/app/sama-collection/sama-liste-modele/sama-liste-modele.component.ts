@@ -1,9 +1,9 @@
-import {Component, OnInit} from '@angular/core';
-import {ServiceModeleService} from '../../service/service-modele.service';
-import {ServiceConfigService} from '../../service/service-config.service';
-import {ServiceCollectionService} from '../../service/service-collection.service';
-import {ServiceTypeTissuService} from '../../service/service-type-tissu.service';
-import {ServicePreferenceService} from '../../service/service-preference.service';
+import {Component, Input, OnInit} from '@angular/core';
+import {ServiceModeleService} from '../../../service/service-modele.service';
+import {ServiceConfigService} from '../../../service/service-config.service';
+import {ServiceCollectionService} from '../../../service/service-collection.service';
+import {ServiceTypeTissuService} from '../../../service/service-type-tissu.service';
+import {ServicePreferenceService} from '../../../service/service-preference.service';
 import {Router} from '@angular/router';
 import {FormBuilder} from '@angular/forms';
 
@@ -40,6 +40,7 @@ export class SamaListeModeleComponent implements OnInit {
     'preferences': []
   };
 
+  @Input()
   samaModeleSelected: any = {
     'idModel': 0,
     'nom': '',
