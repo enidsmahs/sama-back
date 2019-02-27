@@ -22,7 +22,9 @@ export class ServiceModeleService {
   getModele() {
     return this.http.get(this.url.host() + '/getAllModele').map(res => res);
   }
-
+  getModeleById (id: number) {
+    return this.http.get(this.url.host()+'/getModeleById/' + id);
+  }
   uploadFile1(modele: any, files: File[]): Observable<HttpEvent<{}>> {
     const formdata: FormData=new FormData();
     for (let file of files) {
@@ -52,6 +54,21 @@ export class ServiceModeleService {
 
   saveTissu(idModel: number, tissu: any) {
     return this.http.post(this.url.host()+'/'+idModel+'/typeTissus', tissu);
+  }
+
+  deleteImage(id ){
+    console.log(id)
+    return this.http.delete(this.url.host() + '/deleteImageModele/' + id);
+  }
+  addImage(idModel :number,file):Observable<HttpEvent<{}>> {
+    const formdata: FormData=new FormData();
+    console.log('file')
+    console.log(file);
+    formdata.append('image', file);
+    const req= new HttpRequest('POST',this.url.host()+'/'+idModel+'/addImage',formdata,{
+      reportProgress:true,
+    });
+    return this.http.request(req);
   }
 
 }

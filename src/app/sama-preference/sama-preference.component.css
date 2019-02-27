@@ -21,3 +21,43 @@
 .listPreference{
   background-color: #3e5771;
 }
+
+@-webkit-keyframes clignote {
+  0%{box-shadow:0px 0px 10px #4183C4;}
+  50%{box-shadow:0px 0px 0px #4183C4;}
+  100%{box-shadow:0px 0px 10px #4183C4;}
+}
+
+.btn_clignote{
+  box-shadow:0px 0px 10px #4183C4;
+  -webkit-animation-name: clignote;
+-webkit-animation-duration: 1s;
+-webkit-animation-iteration-count:infinite;
+}
+
+.btn_for_image{
+  position: absolute;
+  top: -25px;
+  right: -1px;
+}
+.btn_for_image button{
+  width: 20px;
+  height: 20px;
+  font-size: 0.7em;
+  margin: 1px;
+  padding: auto;
+  opacity: 0.7;
+  border-radius: 50%;
+
+}
+img:hover  .btn_for_image button{
+  width: 20px;
+  height: 20px;
+  font-size: 0.7em;
+  margin: auto;
+  margin: 1px;
+  padding: auto;
+  opacity: 1.0;
+  border-radius: 50%;
+  display: inline-block;
+}

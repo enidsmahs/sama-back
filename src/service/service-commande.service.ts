@@ -9,8 +9,8 @@ export class ServiceCommandeService {
   constructor(private http: HttpClient, private url: ServiceConfigService) { }
 
 
-  getCommande() {
-    return this.http.get(this.url.host()+'/getAllCommande').map(res => res);
+  getListeCommande() {
+    return this.http.get(this.url.host()+'/getAllCommande');
   }
 
 }

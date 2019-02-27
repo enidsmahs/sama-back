@@ -1,61 +1,7 @@
-<!--
-Nouvelle des préférences -->
-
-<div class="row">
-  <div class="col-sm-6">
-    <form #f="ngForm" (ngSubmit)="enregistrerPreference(f.value)">
-      <div class="form-group">
-        <label>Nom préférence</label>
-        <input type="text" class="form-control form-control-round" name="preference" required ngModel>
-      </div>
-      <div class="form-group">
-        <button type="submit" class="btn btn-primary">Ajout</button>
-      </div>
-    </form>
-
-  </div>
-</div>
-<div class="row">
-  <!--
-Affichage liste des préférences -->
-
-  <div class="col-sm-3">
-    <p>Liste des préférences</p>
-    <ul class="list-group">
-      <li class="list-group-item yaga" *ngFor="let pref of SamaPreferences" [class.selected]="pref === SamaPreferencesSelected"
-          (click)="showClick(pref)">
-        <a>{{ pref.nom }}</a>
-        <div class="float-right">
-          <i class="icofont icofont-ui-delete" (click)="deletePreference(pref.idPreference)"></i>
-        </div>
-      </li>
-    </ul>
-  </div>
-  <!--
-Affichage d'une préférence -->
-  <div class="col-sm-9 col-lg-9 details" *ngIf="SamaPreferencesSelected.nom != ''">
-    <div class="d-flex align-items-center">
-      <div class="mr-auto  h1">{{SamaPreferencesSelected.nom}}</div>
-      <div class="">
-        <i type="button" class="btn btn-primary btn-sm btn icofont icofont-ui-add" data-toggle="modal" data-target="#exampleModal" (click)="setAdd(true)">Nouveau Proprieté</i>
-      </div>
-    </div>
-    <div class="d-flex">
-      <div class="card mx-2" style="width: 12rem; display: inline-block;" *ngFor="let prop of SamaPreferencesSelected.proprietes">
-        <img class="card-img-top" width="100rem" height="100rem" src="{{getHost()}}/{{ prop.image }}"
-             alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">{{ prop.valeur }}</h5>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</div>
-
 <div *ngIf="add==true" class="position-fixed  bg-dark w-50 h-50" style="top: 50%;left: 50%;">
   <!-- Modal -->
-  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+       aria-hidden="true">
     <div class="modal-dialog" role="document">
       <div class="modal-content">
         <div class="modal-header">
@@ -72,7 +18,8 @@ Affichage d'une préférence -->
             </div>
             <div class="form-group">
               <label for="image_propriete" style="color: black">Image:</label>
-              <input id="image_propriete" name="image" type="file" class="form-control-file" (change)="selectFile($event)" ngModel>
+              <input id="image_propriete" name="image" type="file" class="form-control-file"
+                     (change)="selectFile($event)" ngModel>
             </div>
           </div>
           <div class="modal-footer">
@@ -83,4 +30,126 @@ Affichage d'une préférence -->
       </div>
     </div>
   </div>
+</div>
+
+<div class="mx-3">
+
+  <div class="row pb-0 ">
+    <div class="col-12 ">
+      <form #f="ngForm"
+            class="card mb-2"
+            (ngSubmit)="enregistrerPreference(f.value)">
+        <div class="card-header">
+          Ajouter une nouvelle preference
+        </div>
+        <div class="card-body">
+          <div class="form-inline">
+            <label for="ajout_preference">Nom:</label>
+            <input type="text"
+                   id="ajout_preference"
+                   class="form-control form-control col-sm-4 col-xs-8 mx-1"
+                   name="preference" required ngModel>
+            <button type="submit" class="btn btn-primary mx-2">Ajout préférence</button>
+          </div>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <div class="row ">
+
+    <div class="col-4 pr-0 ">
+      <div class="card bg-white" style="height: 80vh">
+        <div class="card-header">
+          Liste des préférences
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item yaga" *ngFor="let pref of SamaPreferences"
+              [class.selected]="pref === SamaPreferencesSelected"
+              (click)="showClick(pref)">
+            <a>{{ pref.nom }}</a>
+            <div class="float-right">
+              <i class="icofont icofont-ui-delete" (click)="deletePreference(pref.idPreference)"></i>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="col-8 pl-2" >
+      <div class="bg-white card"
+
+           *ngIf="SamaPreferencesSelected.nom != ''"
+           style="min-height: 80vh">
+        <div class="card-body preference_selected_bloc">
+          <div class="mb-2">
+            <div class="d-flex justify-content-between align-items-end">
+              <h5>Générale</h5>
+              <div>
+                  <input type="checkbox"
+                         #r
+                         class=""
+                         id="customSwitch1"
+                         (change)="onchangeModifier(r.checked)">
+                  <label class="mr-2" for="customSwitch1">Modifier</label>
+                <button class="btn btn-sm btn-danger icofont  icofont-ui-rate-remove preference_selected_bloc">
+                </button>
+                  <button class="btn btn-sm btn-primary icofont  icofont-save" id="btn_save">
+                </button>
+              </div>
+            </div>
+            <hr>
+            <div class="m-4">
+              <div class="form-group ">
+                <label for="">Nom:</label>
+                <input class="form-control textModifier"
+                       id=""
+                       disabled
+                       value="{{SamaPreferencesSelected.nom}}"/>
+              </div>
+            </div>
+          </div>
+
+
+          <div>
+            <div class="d-flex justify-content-between align-items-end">
+              <h5>Liste des propriétés</h5>
+              <div class="">
+              <button type="button"
+                   class="btn btn-primary btn-sm icofont icofont-ui-add float-right preference_selected_bloc"
+                   data-toggle="modal" data-target="#exampleModal" (click)="setAdd(true)"></button>
+              </div>
+            </div>
+            <hr>
+            <div class="m-3 mt-4">
+              <div class="d-flex ">
+                <div class="card mx-2 " style="width: 8rem; display: inline-block;"
+                     *ngFor="let prop of SamaPreferencesSelected.proprietes">
+                  <div class="btn_for_image m-0 p-0" >
+                    <button class=" p-1 bg-primary btn btn-sm btn-outline-default icofont icofont-ui-edit  rounded-circle"></button>
+                    <button class=" p-1 bg-danger btn  btn-outline-default icofont icofont-close rounded-circle"></button>
+                  </div>
+                  <img class="card-img-top preference_selected_bloc"
+                       width="100rem" height="140rem" src="{{getHost()}}/{{ prop.image }}"
+                       alt="Card image cap">
+                  <div class="card-body p-0">
+                    <div class="form-group  m-0 ">
+                      <input class="form-control textModifier"
+                             disabled
+                             value="{{ prop.valeur }}"/>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+
+        </div>
+
+      </div>
+    </div>
+
+  </div>
+
 </div>

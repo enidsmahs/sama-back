@@ -1,4 +1,4 @@
-import {Component, Input, OnInit} from '@angular/core';
+import {Component, Input, OnInit, SimpleChanges} from '@angular/core';
 import {ServiceModeleService} from '../../../service/service-modele.service';
 import {ServiceConfigService} from '../../../service/service-config.service';
 import {ServiceCollectionService} from '../../../service/service-collection.service';
@@ -14,7 +14,7 @@ import {FormBuilder} from '@angular/forms';
 })
 export class SamaListeModeleComponent implements OnInit {
 
-
+  files = [];
   constructor(
     private serviceModele: ServiceModeleService,
     private serviceConfig: ServiceConfigService,
@@ -27,18 +27,8 @@ export class SamaListeModeleComponent implements OnInit {
 
   }
 
-  add = false;
+  noData = false;
 
-  SamaModeles: any;
-
-  SamaModele = {
-    'idModel': 0,
-    'nom': '',
-    'date': '',
-    'collections': [],
-    'ligneModelTissus': [],
-    'preferences': []
-  };
 
   @Input()
   samaModeleSelected: any = {
@@ -47,7 +37,8 @@ export class SamaListeModeleComponent implements OnInit {
     'date': '',
     'collections': [],
     'ligneModelTissus': [],
-    'preferences': []
+    'preferences': [],
+    'images' :  []
   };
 
   collections: Array<any> = [];
@@ -55,22 +46,22 @@ export class SamaListeModeleComponent implements OnInit {
   preferences: Array<any> = [];
 
   ngOnInit(): void {
-    this.getAllModele();
     this.getAllCollection();
     this.getAllPreference();
     this.getAllTissu();
 
   }
 
-  getAllModele() {
-    this.serviceModele.getModele()
-      .subscribe(res => {
-          this.SamaModeles = res;
-        },
-        err => {
-          console.log(err);
-        })
+  ngOnChanges(changes: SimpleChanges) {
+
+    if(changes['samaModeleSelected']){
+      this.noData = true;
+      this.showClick();
+    }
+
+    console.log(this.noData);
   }
+
 
   getAllCollection() {
     this.serviceCollection.getAllCollection()
@@ -108,23 +99,88 @@ export class SamaListeModeleComponent implements OnInit {
         })
   }
 
-  showClick(modele: any) {
-    this.refreshCollection();
-    this.samaModeleSelected = modele;
-    this.tabCollection = this.samaModeleSelected.collections;
-    this.tabPreference = this.samaModeleSelected.preferences;
-    this.tabTissu = this.samaModeleSelected.ligneModelTissus;
+  index = 0;
+  addImage(event) {
+    console.log(event);
+    this.serviceModele.addImage(
+      this.samaModeleSelected.idModel,
+      event.target.files[0],
+    ).subscribe(
+      (res)=> {
+        if(res.type === 4){
+          console.log(res['body']);
+          let ob= res['body'];
+          this.samaModeleSelected.images.push(ob);
+        }
+      },
+    (err)=>{
+       alert('echec add image');
+      }
+    );
+  }
+  deleteImage(image){
+    console.log(image);
+    this.serviceModele.deleteImage(image['idImage']).subscribe(
+      (value) => {
+        if(value){
+          this.deleteImageInModele(image['idImage']);
+        }
+      },
+      (err) => {
+        alert('echec suppression image');
+      }
+
+    );
+    this.resetImage();
+  }
+  setDefaultImage(image){
+
+  }
+  getImage(){
+    if(this.image)
+      return this.image.nom;
+    return '';
+  }
+  getImage2(image){
+    if(image)
+      return image.nom;
+    return '';
+  }
+  showClick() {
+    console.log(this.samaModeleSelected);
+    console.log(this.samaModeleSelected.collections);
+      this.tabCollection = this.samaModeleSelected.collections;
+      console.log('ddd')
+      console.log(this.tabCollection)
+
+
+      this.tabPreference = this.samaModeleSelected.preferences;
+      this.tabTissu = this.samaModeleSelected.ligneModelTissus;
+      this.resetImage();
+
+
+
+
   }
 
+  resetImage(){
+    if(this.samaModeleSelected.images){
+      console.log(this.samaModeleSelected.images)
+      this.image = this.samaModeleSelected['images'][0];
+    }
+  }
+
+  image :any;
+  changeImage(image){
+    this.image=image;
+  }
   refreshCollection() {
     for (let collection of this.tabCollectionRemoved){
       this.tabCollection.push(collection);
     }
   }
 
-  setAdd(test1) {
-    this.add = test1;
-  }
+
 
   getHost() {
     return this.serviceConfig.host();
@@ -281,5 +337,21 @@ export class SamaListeModeleComponent implements OnInit {
   tabTissuRemoved=[];
   removeOneTissu(i) {
 
+  }
+
+  clone(source ,target){
+    for (let att in source){
+      target[att] = source[att];
+    }
+  }
+
+  deleteImageInModele(id: number){
+    const i= this.samaModeleSelected.images.findIndex(
+      (s) => {
+        return s['idImage'] === id;
+      });
+    if(i>=0){
+      this.samaModeleSelected.images.splice(i,1);
+    }
   }
 }

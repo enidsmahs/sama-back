@@ -7,6 +7,7 @@ import { SamaCollectionComponent } from './sama-collection.component';
 import {ReactiveFormsModule} from '@angular/forms';
 import {SamaListeModeleComponent} from './sama-liste-modele/sama-liste-modele.component';
 import { ListeModeleComponent } from './liste-modele/liste-modele.component';
+import { ListeCollectionComponent } from './liste-collection/liste-collection.component';
 
 @NgModule({
     imports: [
@@ -14,7 +15,7 @@ import { ListeModeleComponent } from './liste-modele/liste-modele.component';
         SharedModule,
         RouterModule.forChild(SamaCollectionRoutes), ReactiveFormsModule
     ],
-    declarations: [SamaCollectionComponent,SamaListeModeleComponent, ListeModeleComponent]
+    declarations: [SamaCollectionComponent,SamaListeModeleComponent, ListeModeleComponent, ListeCollectionComponent]
 })
 export class SamaCollectionModule {
 

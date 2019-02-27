@@ -23,3 +23,30 @@
   width: 20rem;
 }
 
+.btn-in-image{
+  width: 1rem;
+  height: 1rem;
+  margin: 1px;
+  padding: 2px;
+}
+.btn-in-image-delete{
+  width: 1rem;
+  height: 1rem;
+  margin: 1px;
+  padding: 2px;
+  color: darkred;
+
+}
+
+.btn-in-image-delete:hover{
+  width: 1rem;
+  height: 1rem;
+  margin: 1px;
+  padding: 2px;
+  color: red;
+}
+.btn-add-image{
+
+  vertical-align: middle;
+}
+
