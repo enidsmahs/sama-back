@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import {ServiceConfigService} from './service-config.service';
 
 @Injectable()
 export class ServiceClientService {
@@ -10,18 +11,22 @@ export class ServiceClientService {
     this.clients = clients;
   }
 
-  constructor(private http: HttpClient) { }
+  constructor(private http: HttpClient, private url: ServiceConfigService) { }
 
+  getAllClient() {
+    return this.http.get(this.url.host()+'/getAllClient').map(res => res);
+  }
 
   saveClient () {
-    return this.http.post('http://192.168.1.123:8080/saveClient', this.clients)
-      .subscribe(
-        (res) => {
-          alert('collection enrégistrée...');
-        },
-        err => {
-          console.log('Error');
-        });
+    return this.http.post(this.url.host()+'/saveClient', this.clients);
+  }
+
+  deleteClient(id: number) {
+    return this.http.delete(this.url.host() + '/deleteClientById/' + id)
+  }
+
+  updateClient() {
+
   }
 
 }

@@ -1,27 +1,130 @@
-<div class="row w-100 bg-white">
-  <div class="d-flex w-100 justify-content-between p-2 flex-fill bd-highlight">
-    <button class="btn btn-sm btn-primary">nouvel utilisateur</button>
+<div class="row w-100">
+  <div class="col-12 w-100">
+    <ngb-tabset>
+      <ngb-tab title="Administrateur back-office">
+        <ng-template ngbTabContent>
+          <div class="row w-100">
+            <div class="m-2 col-sm-8">
+              <table class="table table-xs bg-white">
+                <thead>
+                <tr>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Login</th>
+                  <th scope="col">Role</th>
+                  <th scope="col">Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let user of listeUser">
+                    <td>{{user.nom}}</td>
+                    <td>{{user.compteUser.login}}</td>
+                    <td>{{user.roles[0].nom}}</td>
+                    <td>
+                      <button class="btn btn-sm btn-primary icofont icofont-ui-edit btn-outline-default rounded-circle">
+                      </button>
+                      <button (click)="deleteUser(user.idUser)" class="btn btn-sm btn-primary icofont icofont-ui-delete btn-outline-default rounded-circle">
+                      </button>
+                    </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="m-2 col-sm-3 card">
+              <form #u="ngForm" (ngSubmit)="enregistrerUtilisateur(u.value)">
+                <div class="form-group">
+                  <label for="_nom_login">Nom</label>
+                  <input type="text" class="form-control" id="_nom_login" name="nom" ngModel required>
+                </div>
+                <div class="form-group">
+                  <label for="_prenom">Login</label>
+                  <input type="text" class="form-control" id="_login" name="login" ngModel required>
+                </div>
+                <div class="form-group">
+                  <div class="form-check ml-4" *ngFor="let role of userRoles">
+                    <input class="form-check-input" type="checkbox" id="_admin" name="sama_role" [(ngModel)]='role.selected' value="{{role.value}}">
+                    <label class="form-check-label" for="_admin">
+                      {{ role.nom }}
+                    </label>
+                  </div>
+                </div>
+                <button type="submit" class="btn btn-sm btn-primary mb-1">Enrégister</button>
+              </form>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+      <ngb-tab title="Client">
+        <ng-template ngbTabContent>
+          <div class="row w-100 bg-secondary">
+            <div class="m-2 col-sm-8 card w-100">
+              <table class="table table-xs bg-default">
+                <thead>
+                <tr>
+                  <th scope="col">Nom</th>
+                  <th scope="col">Prénom</th>
+                  <th scope="col">Téléphone</th>
+                  <th scope="col">Ville</th>
+                  <th scope="col">Pays</th>
+                  <th scope="col"></th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr *ngFor="let client of listeClient">
+                  <td>{{client.nom}}</td>
+                  <td>{{client.prenom}}</td>
+                  <td>{{client.telephone}}</td>
+                  <td>{{client.adresses.ville}}</td>
+                  <td>{{client.adresses.pays}}</td>
+                  <td>
+                    <button class="icofont icofont-ui-edit btn-outline-default rounded-circle">
+                    </button>
+                    <button (click)="deleteClient(client.idClient)" class="icofont icofont-ui-delete btn-outline-default rounded-circle">
+                    </button>
+                  </td>
+                </tr>
+                </tbody>
+              </table>
+            </div>
+            <div class="m-2 col-sm-3 card">
+              <form #client="ngForm" (ngSubmit)="enregistrerClient(client.value)" class="enids">
+                <div class="form-group-sm">
+                  <label for="_nom">Nom</label>
+                  <input type="text" class="form-control" id="_nom" name="nom" ngModel>
+                </div>
+                <div class="form-group-sm">
+                  <label for="_prenom">Prenom</label>
+                  <input type="text" class="form-control" id="_prenom" name="prenom" ngModel>
+                </div>
+                <div class="form-group-sm">
+                  <label for="_email">Email</label>
+                  <input type="email" class="form-control" id="_email" name="mail" ngModel>
+                </div>
+                <div class="form-group-sm">
+                  <label for="_telephone">Téléphone</label>
+                  <input type="tel" class="form-control" id="_telephone" name="telephone" ngModel>
+                </div>
+                <div class="form-group-sm">
+                  <label for="_adresse">Adresse</label>
+                  <input type="text" class="form-control" id="_adresse" name="adresse" ngModel>
+                </div>
+                <div class="form-group-sm">
+                  <label for="_numero">Numéro</label>
+                  <input type="number" class="form-control" id="_numero" name="numero" ngModel>
+                </div>
+                <div class="form-group-sm">
+                  <label for="_ville">Ville</label>
+                  <input type="text" class="form-control" id="_ville" name="ville" ngModel>
+                </div>
+                <div class="form-group-sm">
+                  <label for="_pays">Pays</label>
+                  <input type="text" class="form-control" id="_pays" name="pays" ngModel>
+                </div>
+                <button type="submit" class="btn btn-primary btn-sm mb-1 mt-1">Enrégister</button>
+              </form>
+            </div>
+          </div>
+        </ng-template>
+      </ngb-tab>
+    </ngb-tabset>
   </div>
-  <table class="table table-sm mt-2">
-    <thead>
-    <tr>
-      <th scope="col">Nom</th>
-      <th scope="col">Login</th>
-      <th scope="col">Passe</th>
-      <th scope="col">Role</th>
-      <th scope="col">Action</th>
-    </tr>
-    </thead>
-    <tbody>
-    <tr>
-      <td>Mark</td>
-      <td>Otto</td>
-      <td>@mdo</td>
-      <td>@mdo</td>
-      <td>
-        <button><i class="ti-user"></i></button>
-      </td>
-    </tr>
-    </tbody>
-  </table>
 </div>

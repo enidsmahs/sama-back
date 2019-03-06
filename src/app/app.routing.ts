@@ -2,6 +2,8 @@ import {Routes} from '@angular/router';
 
 import {AdminLayoutComponent} from './layouts/admin/admin-layout.component';
 import {AuthLayoutComponent} from './layouts/auth/auth-layout.component';
+import {AuthGuardService} from './guards/auth-guard.service';
+import {RoleGuardService} from '../service/RoleGuardService.service';
 
 export const AppRoutes: Routes = [{
   path: '',
@@ -13,7 +15,8 @@ export const AppRoutes: Routes = [{
       pathMatch: 'full'
     }, {
       path: 'dashboard',
-      loadChildren: './dashboard/dashboard.module#DashboardModule'
+      loadChildren: './dashboard/dashboard.module#DashboardModule',
+      canActivate: [AuthGuardService]
     }, {
       path: 'basic',
       loadChildren: './components/basic/basic.module#BasicModule'
@@ -49,28 +52,38 @@ export const AppRoutes: Routes = [{
       loadChildren: './collection/type-tissu/type-tissu.component.ts'
     }, {
       path: 'sama-collection',
-      loadChildren: './sama-collection/sama-collection.module#SamaCollectionModule'
+      loadChildren: './sama-collection/sama-collection.module#SamaCollectionModule',
+      canActivate: [AuthGuardService]
     }, {
       path: 'sama-categorie',
-      loadChildren: './sama-categorie/sama-categorie.module#SamaCategorieModule'
+      loadChildren: './sama-categorie/sama-categorie.module#SamaCategorieModule',
+      canActivate: [AuthGuardService]
     }, {
       path: 'sama-preference',
-      loadChildren: './sama-preference/sama-preference.module#SamaPreferenceModule'
+      loadChildren: './sama-preference/sama-preference.module#SamaPreferenceModule',
+      canActivate: [AuthGuardService]
     }, {
       path: 'sama-tissu',
-      loadChildren: './sama-tissu/sama-tissu.module#SamaTissuModule'
+      loadChildren: './sama-tissu/sama-tissu.module#SamaTissuModule',
+      canActivate: [AuthGuardService]
     }, {
       path: 'sama-modele',
-      loadChildren: './sama-modele/sama-modele.module#SamaModeleModule'
+      loadChildren: './sama-modele/sama-modele.module#SamaModeleModule',
+      canActivate: [AuthGuardService]
     }, {
       path: 'sama-liste-modele',
-      loadChildren: './sama-liste-modele/sama-liste-modele.module#SamaListeModeleModule'
+      loadChildren: './sama-liste-modele/sama-liste-modele.module#SamaListeModeleModule',
+      canActivate: [AuthGuardService]
     }, {
       path: 'sama-commande',
-      loadChildren: './sama-commande/sama-commande.module#SamaCommandeModule'
+      loadChildren: './sama-commande/sama-commande.module#SamaCommandeModule',
+      canActivate: [AuthGuardService]
     }, {
       path: 'sama-user',
       loadChildren: './sama-user/sama-user.module#SamaUserModule'
+    }, {
+      path: 'sama-login',
+      loadChildren: './sama-login/sama-login.module#SamaLoginModule'
     }
   ]
 }, {

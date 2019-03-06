@@ -2,7 +2,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule } from '@angular/router';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import {FormGroup, FormsModule, ReactiveFormsModule} from '@angular/forms';
 import { HttpModule } from '@angular/http';
 
 import { AppRoutes } from './app.routing';
@@ -23,9 +23,13 @@ import { ServiceModeleService } from '../service/service-modele.service';
 import {ServiceTypeTissuService} from '../service/service-type-tissu.service';
 import {ServiceCommandeService} from '../service/service-commande.service';
 import {ServiceConfigService} from '../service/service-config.service';
-import {SamaListeModeleModule} from './sama-liste-modele/sama-liste-modele.module';
-import {SamaListeModeleRoutes} from './sama-liste-modele/sama-liste-modele.routing';
-import {SamaListeModeleComponent} from './sama-liste-modele/sama-liste-modele.component';
+import {AuthGuardService} from './guards/auth-guard.service';
+import {AlertService} from '../service/alert.service';
+import {AuthenticationService} from '../service/authentification.service';
+import {SessionService} from '../service/session.service';
+import {ServiceClientService} from '../service/service-client.service';
+import {RoleGuardService} from '../service/RoleGuardService.service';
+import {ServiceUserService} from '../service/service-user.service';
 
 
 @NgModule({
@@ -44,7 +48,7 @@ import {SamaListeModeleComponent} from './sama-liste-modele/sama-liste-modele.co
     FormsModule,
     HttpModule,
     ScrollModule,
-    HttpClientModule,
+    HttpClientModule, ReactiveFormsModule
   ],
   exports: [ScrollModule],
   providers: [
@@ -57,6 +61,8 @@ import {SamaListeModeleComponent} from './sama-liste-modele/sama-liste-modele.co
     ServiceModeleService,
     ServiceCommandeService,
     ServiceConfigService,
+    AuthGuardService,
+    AlertService, AuthenticationService, SessionService, ServiceClientService, RoleGuardService, ServiceUserService,
     { provide: LocationStrategy, useClass: PathLocationStrategy }
   ],
   bootstrap: [AppComponent]

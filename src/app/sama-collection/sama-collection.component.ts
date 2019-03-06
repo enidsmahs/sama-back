@@ -55,11 +55,6 @@ export class SamaCollectionComponent implements OnInit {
 
   }
 
-
-
-
-
-
     getCategories() {
         this.categorieService.getAllCategorie().subscribe(
             data => {

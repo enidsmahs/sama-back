@@ -3,6 +3,8 @@ import 'rxjs/add/operator/filter';
 import {state, style, transition, animate, trigger, AUTO_STYLE} from '@angular/animations';
 
 import { MenuItems } from '../../shared/menu-items/menu-items';
+import {SessionService} from '../../../service/session.service';
+import {ServiceUserService} from '../../../service/service-user.service';
 
 export interface Options {
   heading?: string;
@@ -47,7 +49,7 @@ export class AdminLayoutComponent implements OnInit {
 
   public htmlButton: string;
 
-  constructor(public menuItems: MenuItems) {
+  constructor(public menuItems: MenuItems, private serviceUser: ServiceUserService, private sesseion: SessionService) {
     const scrollHeight = window.screen.height - 150;
     this.innerHeight = scrollHeight + 'px';
     this.windowWidth = window.innerWidth;
@@ -60,7 +62,12 @@ export class AdminLayoutComponent implements OnInit {
 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+  seDeconnecter() {
+    this.sesseion.logoutUser();
+  }
 
   onClickedOutside(e: Event) {
       if (this.windowWidth < 768 && this.toggleOn && this.verticalNavType !== 'offcanvas') {

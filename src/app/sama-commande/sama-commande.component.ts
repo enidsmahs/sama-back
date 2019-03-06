@@ -20,7 +20,7 @@ export class SamaCommandeComponent implements OnInit {
     ngOnInit() {}
 
     getCommande() {
-      this.serviceCommande.getCommande()
+      this.serviceCommande.getListeCommande()
         .subscribe(res => {
             this.samaCommande = res;
           },

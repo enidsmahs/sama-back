@@ -46,6 +46,12 @@ const MENUITEMS = [
         icon: 'ti-user'
       },
       {
+        state: 'sama-commande',
+        name: 'Mes commandes',
+        type: 'link',
+        icon: 'ti-package'
+      },
+      {
         state: 'sama-categorie',
         name: 'Mes catégories',
         type: 'link',
@@ -80,12 +86,6 @@ const MENUITEMS = [
         name: 'Mes modèles',
         type: 'link',
         icon: 'ti-layout-sidebar-left'
-      },
-      {
-        state: 'sama-commande',
-        name: 'Mes commandes',
-        type: 'link',
-        icon: 'ti-package'
       }
     ]
   },

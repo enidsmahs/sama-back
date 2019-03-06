@@ -4,10 +4,10 @@ import {HttpClient} from '@angular/common/http';
 
 @Injectable()
 export class ServiceConfigService {
-  constructor() { }
+  constructor() {}
 
   host() {
-    return 'http://192.168.1.117:8080';
+    return 'http://192.168.1.124:8080';
   }
   
 }
