@@ -180,7 +180,6 @@ export class SamaModeleComponent implements OnInit {
         return files;
      }
 
-
   enregistrerModeleImage(prop) {
     this.serviceModele.uploadFile1({
      'idModel': 0,
@@ -188,6 +187,7 @@ export class SamaModeleComponent implements OnInit {
      'date': prop.date
     }, this.getAllFiles()).subscribe((res: any) => {
           //alert('modèle enrégisté...');
+      this.route.navigate(['/sama-modele']);
 
      }, err => console.error(err)
     );

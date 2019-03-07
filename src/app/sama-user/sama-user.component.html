@@ -1,10 +1,10 @@
 <div class="row w-100">
   <div class="col-12 w-100">
     <ngb-tabset>
-      <ngb-tab title="Administrateur back-office">
+      <ngb-tab title="Administrateur">
         <ng-template ngbTabContent>
           <div class="row w-100">
-            <div class="m-2 col-sm-8">
+            <div class="m-1 col-sm-8">
               <table class="table table-xs bg-white">
                 <thead>
                 <tr>
@@ -29,7 +29,7 @@
                 </tbody>
               </table>
             </div>
-            <div class="m-2 col-sm-3 card">
+            <div class="m-1 col-sm-3 card">
               <form #u="ngForm" (ngSubmit)="enregistrerUtilisateur(u.value)">
                 <div class="form-group">
                   <label for="_nom_login">Nom</label>
@@ -55,17 +55,15 @@
       </ngb-tab>
       <ngb-tab title="Client">
         <ng-template ngbTabContent>
-          <div class="row w-100 bg-secondary">
-            <div class="m-2 col-sm-8 card w-100">
-              <table class="table table-xs bg-default">
+          <div class="row w-100">
+            <div class="m-2 col-sm-8">
+              <table class="table table-xs bg-white">
                 <thead>
                 <tr>
                   <th scope="col">Nom</th>
                   <th scope="col">Prénom</th>
                   <th scope="col">Téléphone</th>
-                  <th scope="col">Ville</th>
-                  <th scope="col">Pays</th>
-                  <th scope="col"></th>
+                  <th scope="col">Option</th>
                 </tr>
                 </thead>
                 <tbody>
@@ -73,51 +71,43 @@
                   <td>{{client.nom}}</td>
                   <td>{{client.prenom}}</td>
                   <td>{{client.telephone}}</td>
-                  <td>{{client.adresses.ville}}</td>
-                  <td>{{client.adresses.pays}}</td>
                   <td>
-                    <button class="icofont icofont-ui-edit btn-outline-default rounded-circle">
+                    <button class="btn btn-sm btn-primary icofont icofont-ui-edit btn-outline-default rounded-circle">
                     </button>
-                    <button (click)="deleteClient(client.idClient)" class="icofont icofont-ui-delete btn-outline-default rounded-circle">
+                    <button (click)="deleteClient(client.idClient)" class="btn btn-sm btn-primary icofont icofont-ui-delete btn-outline-default rounded-circle">
                     </button>
+                    <a [routerLink]="['sama-user-info', client.idClient]" class="btn btn-sm btn-primary icofont icofont-ui-add btn-outline-default rounded-circle">
+                    </a>
                   </td>
                 </tr>
                 </tbody>
               </table>
             </div>
             <div class="m-2 col-sm-3 card">
-              <form #client="ngForm" (ngSubmit)="enregistrerClient(client.value)" class="enids">
+              <form #client="ngForm" (ngSubmit)="enregistrerClient(client.value)">
                 <div class="form-group-sm">
                   <label for="_nom">Nom</label>
-                  <input type="text" class="form-control" id="_nom" name="nom" ngModel>
+                  <input type="text" class="form-control" id="_nom" name="nom" ngModel required>
                 </div>
                 <div class="form-group-sm">
                   <label for="_prenom">Prenom</label>
-                  <input type="text" class="form-control" id="_prenom" name="prenom" ngModel>
+                  <input type="text" class="form-control" id="_prenom" name="prenom" ngModel required>
+                </div>
+                <div class="form-group">
+                  <label for="_loginClient">Login</label>
+                  <input type="text" class="form-control" id="_loginClient" name="login" ngModel required>
+                </div>
+                <div class="form-group">
+                  <label for="_passwordClient">Mot de passe</label>
+                  <input type="password" class="form-control" id="_passwordClient" name="mdp" ngModel required>
                 </div>
                 <div class="form-group-sm">
                   <label for="_email">Email</label>
-                  <input type="email" class="form-control" id="_email" name="mail" ngModel>
+                  <input type="email" class="form-control" id="_email" name="mail" ngModel required>
                 </div>
                 <div class="form-group-sm">
                   <label for="_telephone">Téléphone</label>
-                  <input type="tel" class="form-control" id="_telephone" name="telephone" ngModel>
-                </div>
-                <div class="form-group-sm">
-                  <label for="_adresse">Adresse</label>
-                  <input type="text" class="form-control" id="_adresse" name="adresse" ngModel>
-                </div>
-                <div class="form-group-sm">
-                  <label for="_numero">Numéro</label>
-                  <input type="number" class="form-control" id="_numero" name="numero" ngModel>
-                </div>
-                <div class="form-group-sm">
-                  <label for="_ville">Ville</label>
-                  <input type="text" class="form-control" id="_ville" name="ville" ngModel>
-                </div>
-                <div class="form-group-sm">
-                  <label for="_pays">Pays</label>
-                  <input type="text" class="form-control" id="_pays" name="pays" ngModel>
+                  <input type="tel" class="form-control" id="_telephone" name="telephone" ngModel required>
                 </div>
                 <button type="submit" class="btn btn-primary btn-sm mb-1 mt-1">Enrégister</button>
               </form>

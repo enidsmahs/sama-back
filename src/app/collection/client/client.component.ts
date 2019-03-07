@@ -23,15 +23,7 @@ export class ClientComponent implements OnInit {
   }
 
   save(samaClient) {
-    this.samaClient.idClient = 0;
-    this.samaClient.nom = 'Kane';
-    this.samaClient.prenom = 'Abdoulaye';
-    this.samaClient.mail = 'ablaye@gmail.com';
-    this.samaClient.telephone = '773539863';
-    this.samaClient.dateCreation = '2015-03-01';
 
-     this.serviceClient.setClient(samaClient);
-     this.serviceClient.saveClient();
   }
 
 }

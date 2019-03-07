@@ -5,6 +5,7 @@ import {state, style, transition, animate, trigger, AUTO_STYLE} from '@angular/a
 import { MenuItems } from '../../shared/menu-items/menu-items';
 import {SessionService} from '../../../service/session.service';
 import {ServiceUserService} from '../../../service/service-user.service';
+import {Observable} from 'rxjs/Observable';
 
 export interface Options {
   heading?: string;
@@ -61,6 +62,7 @@ export class AdminLayoutComponent implements OnInit {
     this.htmlButton += '</div>';
 
   }
+
 
   ngOnInit() {
   }

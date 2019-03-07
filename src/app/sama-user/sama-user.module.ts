@@ -5,6 +5,7 @@ import {RouterModule} from '@angular/router';
 import {SamaUserRoutes} from './sama-user.routing';
 import {SamaUserComponent} from './sama-user.component';
 import {CommonModule} from '@angular/common';
+import { SamaUserInfoComponent } from './sama-user-info/sama-user-info.component';
 
 @NgModule({
   imports:[
@@ -13,7 +14,8 @@ import {CommonModule} from '@angular/common';
     RouterModule.forChild(SamaUserRoutes)
   ],
   declarations:[
-    SamaUserComponent
+    SamaUserComponent,
+    SamaUserInfoComponent
   ]
 })
 export class SamaUserModule {

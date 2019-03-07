@@ -9,22 +9,21 @@ import {ServiceUserService} from '../../service/service-user.service';
 })
 export class SamaUserComponent implements OnInit {
 
+
   listeClient = [];
   listeUser = [];
   userRoles = [];
 
-  client: any = {
+  client = {
     idClient: 0,
     nom: '',
     prenom: '',
     mail: '',
     telephone: '',
-    adresses: {
-      idAdresse: 0,
-      numero: 0,
-      telephone: '',
-      ville: '',
-      pays: ''
+    compte: {
+      idCompte: 0,
+      login: '',
+      mdp: ''
     }
   };
 
@@ -108,29 +107,37 @@ export class SamaUserComponent implements OnInit {
         err => {
           console.log('Error');
         });
-    /* this.user.id_user = 0;
-    this.user.nom = user.nom;
-    this.user.compte.login = user.login;
+  }
 
+  enregistrerClient(client) {
 
-    console.log(this.user);
-   /* this.serviceUser.setUser(this.user);
-    this.serviceUser.saveUser()
-      .subscribe(
+    console.log(client);
+
+    this.serviceClient.saveClient({
+      'nom': client.nom,
+      'prenom': client.prenom,
+      'mail': client.mail,
+      'telephone': client.telephone,
+      'compte': {
+        'idCompte': 0,
+        'login': client.login,
+        'mdp': client.mdp
+      }
+    }).subscribe(
         (res) => {
-          // alert('client enrégistré...');
-          this.listeUser.push(res);
+         // alert('client enrégistré...');
+          this.listeClient.push(res);
         },
         err => {
           console.log('Error');
-        }); */
+        });
   }
 
   deleteClient(id) {
     this.serviceClient.deleteClient(id).subscribe(
       (res) => {
         if (res == true) {
-          this.deleteInTableau(id, this.listeClient);
+          this.deleteInTableauClient(id, this.listeClient);
         }
       },
       err => {
@@ -143,7 +150,7 @@ export class SamaUserComponent implements OnInit {
     this.serviceUser.deleteUserById(id).subscribe(
       (res) => {
         if (res == true) {
-          this.deleteInTableau(id, this.listeUser);
+          this.deleteInTableauUser(id, this.listeUser);
         }
       },
       err => {
@@ -152,14 +159,21 @@ export class SamaUserComponent implements OnInit {
     );
   }
 
-  deleteInTableau(id: number, tab: Array<any>){
-    const index = this.getIndexTabById(id, this.listeUser);
+  deleteInTableauUser(id: number, tab: Array<any>){
+    const index = this.getIndexTableUserById(id, tab);
     if(index >= 0){
       tab.splice(index, 1);
     }
   }
 
-  getIndexTabById(id: number, tab: Array<any>){
+  deleteInTableauClient(id: number, tab: Array<any>){
+    const index = this.getIndexTableClientById(id, tab);
+    if(index >= 0){
+      tab.splice(index, 1);
+    }
+  }
+
+  getIndexTableUserById(id: number, tab: Array<any>){
     const index = tab.findIndex(
       (s) => {
         return s.idUser === id;
@@ -168,27 +182,13 @@ export class SamaUserComponent implements OnInit {
     return index;
   }
 
-  enregistrerClient(client) {
-    this.client.idClient = 0;
-    this.client.nom = client.nom;
-    this.client.prenom = client.prenom;
-    this.client.mail = client.mail;
-    this.client.telephone = client.telephone;
-    this.client.adresses.telephone = client.telephone;
-    this.client.adresses.numero = client.numero;
-    this.client.adresses.ville = client.ville;
-    this.client.adresses.pays = client.pays;
-
-    this.serviceClient.setClient(this.client);
-    this.serviceClient.saveClient()
-      .subscribe(
-        (res) => {
-         // alert('client enrégistré...');
-          this.listeClient.push(res);
-        },
-        err => {
-          console.log('Error');
-        });
+  getIndexTableClientById(id: number, tab: Array<any>){
+    const index = tab.findIndex(
+      (s) => {
+        return s.idClient === id;
+      }
+    );
+    return index;
   }
 
 }
